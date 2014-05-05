@@ -1,0 +1,46 @@
+
+@media all and (orientation: portrait) {
+
+}
+
+/* Event List Styles */
+
+.ev_ListItem {
+	font-family: helvetica neue, verdana, sans-serif;
+	display: block;
+	margin-bottom: 1px;
+	padding-bottom: 6px;
+	overflow: hidden;
+	word-wrap: break-word;
+	border-bottom: 1px solid #ccc;
+	background-repeat: no-repeat;
+	background-position: 100% 50%;
+	white-space: normal;
+	margin: 0px;
+}
+.ev_ListItem p {
+	font-size: 12px;
+	font-weight: bold;
+	color: #444;
+	margin: 0px auto 2px;
+}
+.ev_ListItem h3 {
+	font-size: 13.5px;
+	font-weight: bold;
+	margin: 0px auto 2px;
+	padding: 6px 0px 6px 0px;
+}
+.ev_ListView {
+	font-size: 13.5px;
+	color: #444;
+	margin: 0px;
+	padding: 0px 0px 0px 0px;
+}
+.ev_ListDate {
+	font-size: 16px;
+	font-weight: bold;
+	color: #000;
+	margin: 20px auto 6px;
+	background-image: url(http://www.esf.edu/calendar/images/goldfadebg.png);
+	background-repeat: no-repeat;
+}

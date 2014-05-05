@@ -1,0 +1,37 @@
+li.personLink {
+	cursor: pointer;
+}
+#person div.person span {
+	display: inline-block;
+	padding: 0.6em;
+}
+#person div.person span.label {
+	font-weight: bold;
+	width: 20%;
+}
+@media all and (orientation: portrait) {
+	#person div.person span {
+		display: block;
+		text-align: center;
+	}
+	#person div.person span.label {
+		width: auto;
+		border-bottom: 1px solid;
+	}
+}
+div.person a {
+	color: green;
+	text-decoration: bold;
+}
+.message .ui-btn-text {
+	white-space: normal;
+}
+.center-wrapper{
+text-align: center;
+}
+.center-wrapper * {
+margin: 0 auto;
+}
+/*#depts .help {
+	padding: 10px 0;
+}*/

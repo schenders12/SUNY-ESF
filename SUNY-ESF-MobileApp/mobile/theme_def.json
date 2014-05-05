@@ -1,0 +1,46 @@
+[
+    {
+        "about":"SUNY ESF Mobile App",
+        "id":"esfmain",
+        "name":"ESF Main App",
+        "updated":"1350307596914",
+        "navbar_logo_low":"images/bannermobile.png",
+        "navbar_logo_high":"images/bannermobile.png",
+        "navbar_background_low_dark":"images/navbar_template_low.png",
+        "navbar_background_high_dark":"images/navbar_template_high.png",
+        "navbar_background_low_light":"images/navbar_template_low_white.png",
+        "navbar_background_high_light":"images/navbar_template_high_white.png",
+        "navbar_text_color":"#000000",
+        "watermark_low":"images/img_seal.png",
+        "watermark_high":"images/img_seal.png",
+        "background_color_dark":"#000000",
+        "background_color_light":"#FFFFFF",
+	"jqm_theme":"d",
+        "subapps":
+            [
+                "about", "news", "events", "directory", "maps", "video", "main", "dining", "athletics", "social", "giving"
+            ]
+    },
+    {
+        "about":"Alternate ESF Theme",
+        "id":"esfalternate",
+        "name":"Arts and Sciences",
+        "updated":"1350307596914",
+        "navbar_logo_low":"images/bannermobile.png",
+        "navbar_logo_high":"images/bannermobile.png",
+        "navbar_background_low_dark":"images/as_bg_navbar_low.png",
+        "navbar_background_high_dark":"images/as_bg_navbar_high.png",
+        "navbar_background_low_light":"images/navbar_template_low_white.png",
+        "navbar_background_high_light":"images/navbar_template_high_white.png",
+        "navbar_text_color":"#fff8DB",
+        "watermark_low":"images/img_seal.png",
+        "watermark_high":"images/img_seal.png",
+        "background_color_dark":"#efefef",
+        "background_color_light":"#FFFFFF",
+        "jqm_theme":"b",
+        "subapps":
+            [
+                "about", "news", "events", "directory", "maps", "video", "main", "dining", "athletics", "social", "giving"
+            ]
+    }
+]

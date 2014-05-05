@@ -1,0 +1,14 @@
+#esfSocial {
+    height   : 100%;
+    margin     : 0;
+    padding    : 0;
+}
+#esfSocial .ui-content #esfSocialListview {
+    min-height : 100%;
+    height     : 100%;
+    margin     : 0;
+    padding    : 0;
+}
+#esfSocialListview .ui-li {
+    height : 60px;
+}

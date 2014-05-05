@@ -1,0 +1,263 @@
+@media (max-width: 400px) {
+
+}
+@media all and (max-device-width:480px) and (orientation:landscape) {
+	
+}
+/* iPad Portait and Landscape */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)  { /* STYLES GO HERE */}
+
+/* iPad in Landscape */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) { /* STYLES GO HERE */}
+
+/* iPad in Portrait */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) { /* STYLES GO HERE */ }
+
+/* iPhone 5 Portrait and Landscape */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) {     
+
+/* increase font size on higher resolution */
+    body {
+        /*font-size: 26px;*/
+		-webkit-text-size-adjust: none;
+    } 
+	
+}
+
+/* iPhone 5 Landscape */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : landscape) { 
+    /* increase font size on higher resolution */
+    body {
+        /*font-size: 26px;*/
+		-webkit-text-size-adjust: none;
+    }
+}
+
+/* iPhone 5 Portrait */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : portrait) { 
+    /* increase font size on higher resolution */
+    body {
+       -webkit-text-size-adjust: none;
+    }
+}
+
+.ui-page {
+	display: none;
+    background: #000000;
+}
+.ui-content {
+    text-shadow: none;
+    color: #000000;
+}
+.ui-header {
+	height: 45px;
+	box-shadow:none;
+   -webkit-box-shadow: none;
+   border:none;
+   background:black; !important;
+  /* margin-top:  20px;*/
+}
+.ui-header.h1 {
+	height: 50px;
+	color: #01589d;
+    text-transform: uppercase;
+    font-size: 13.5px;
+
+     /*   margin: 0px;
+        padding: 0px 0px 0px 0px;*/
+
+}
+#esfPageTitle {
+	height: 80px;
+	/*color: #01589d;  !important; */
+    /*text-transform: uppercase;*/
+    font-size: 13.5px;
+   /* margin: 0.6em 10% 0.8em !important;*/
+        margin: 0px;
+        padding: 0px 0px 0px 0px;
+
+}
+
+.ui_title {
+	height: 50px;
+	color: #01589d;  !important;
+    text-transform: uppercase;
+    font-size: 13.5px;
+    margin: 0.6em 10% 0.8em !important;
+     /*   margin: 0px;
+        padding: 0px 0px 0px 0px;*/
+
+}
+
+.ui-header .logo {
+	height: 45px;
+}
+.ui-header .logo img {
+	padding-left: 25px;
+	padding-top:  0px;
+	
+}
+.ui-field-contain {
+	padding: 1em 0;
+}
+label.error {
+	color: red;
+	padding: 5px 0 0 0;
+	display: block;
+	font-weight: bold;
+}
+.instruction .ui-btn-text {
+	white-space: normal;
+}
+.ui-btn { border : none !important; }
+
+/* Make text within ui components scale relatively to the font-soze of page body */
+/* 16px > 1em */
+.ui-bar,
+.ui-loader-verbose h1,
+.ui-bar h1, .ui-bar h2, .ui-bar h3, .ui-bar h4, .ui-bar h5, .ui-bar h6,
+.ui-header .ui-title, 
+.ui-footer .ui-title,
+.ui-btn-inner,
+.ui-fullsize .ui-btn-inner,
+.ui-fullsize .ui-btn-inner,
+label.ui-submit,
+.ui-collapsible-heading,
+.ui-controlgroup-label,
+.ui-controlgroup .ui-checkbox label, .ui-controlgroup .ui-radio label,
+.ui-popup .ui-title,
+label.ui-select,
+label.ui-input-text,
+textarea.ui-input-text,
+.ui-li-heading,
+label.ui-slider,
+.ui-slider-switch .ui-slider-label {
+    font-size: 1em;
+}
+
+/* 14px > 0.875em */
+.ui-li-divider,
+input.ui-mini, .ui-mini input, textarea.ui-mini,
+input.ui-input-text.ui-slider-input,
+.ui-slider-switch.ui-mini .ui-slider-label {
+    font-size: 0.875em;
+}
+
+/* 12px > 0.75em */
+.ui-mini .ui-btn-inner,
+.ui-li-desc {
+    font-size: 0.75em;
+}
+
+/* 11px > 0.65em */
+.ui-li-has-count .ui-li-count {
+    font-size: 0.65em;
+}
+​/*.ui-page .ui-content .ui-listview .ui-li-desc {*/
+.ui-listview .ui-li-desc {
+    white-space : normal;
+	word-wrap: break-word;
+}​
+/* iPhone 5 Portrait and Landscape */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) {     
+
+/* increase font size on higher resolution */
+    body {
+        /*font-size: 26px;*/
+		-webkit-text-size-adjust: none;
+    }
+	
+}
+
+.esfFooter .ui-btn .ui-btn-inner {
+    padding-top: 60px !important; 
+}
+
+.esfFooter .ui-btn .ui-icon { 
+    width: 45px!important; 
+    height: 45px!important; 
+    margin-left: -24px !important; 
+    box-shadow: none!important; 
+    -moz-box-shadow: none!important; 
+    -webkit-box-shadow: none!important;
+    -webkit-border-radius: 7px !important;
+    border-radius: 7px !important; 
+	/*background-color:white;*/
+	    background: url(../images/blackfadeBG.png);
+}
+
+#esfFB .ui-icon { 
+    background-image: url(../images/facebook_bar.png);
+    background-position: 0px,0px;
+    background-repeat: no-repeat; 
+}
+
+#esfTW .ui-icon { 
+    background-image: url(../images/Twitter_logo_blue_bar.png);
+    background-position: 0px,0px;
+    background-repeat: no-repeat; 
+}
+
+#esfLI .ui-icon { 
+    background-image: url(../images/LinkedIn_bar.png);
+    background-position: 0px,0px;
+    background-repeat: no-repeat; 
+}
+
+#esfYT .ui-icon { 
+    background-image: url(../images/YouTube_bar.png);
+    background-position: 0px,0px;
+    background-repeat: no-repeat; 
+}
+
+#esfWP .ui-icon { 
+    background-image: url(../images/wordpress100.png);
+    background-position: 0px,0px;
+    background-repeat: no-repeat; 
+}
+.esf_ListChoice h4 {
+        font-size: 13.5px;
+        color: #01589d;
+        margin: 0px;
+        padding: 0px 0px 0px 0px;
+        text-transform: uppercase;
+        /*background-color: blue;*/
+}
+
+.esf_ListChoice ui-li-heading {
+        font-size: 13.5px;
+        color: #01589d;
+        margin: 0px;
+        padding: 0px 0px 0px 0px;
+        text-transform: uppercase;
+        /*background-color: blue;*/
+}
+
+/*.portrait {
+    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin: 200px 190px;
+}*/
+.portrait-onready {
+    -webkit-transform: rotate(0deg);
+    -webkit-transform-origin: 165px 150px;
+}
+
+.portrait body div { width: 10%; }

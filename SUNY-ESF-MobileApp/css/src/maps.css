@@ -1,0 +1,25 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+html, body, #map {
+    height: 100%;
+    width: 100%;
+}
+
+#map_canvas { min-height: 320px; height: 100%; margin: -15px;}
+
+html, body, #map_canvas {
+    height: 100%;
+    width: 100%;
+}
+#map_canvas {
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin: 0;
+    padding: 0;
+}
