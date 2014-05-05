@@ -144,25 +144,7 @@ and (orientation : portrait) {
 /* Android */
 @media (min-width:320px) {
 	 /* smartphones, iPhone, portrait 480x320 phones */
-}
-@media (min-width:481px) {
-	 /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-}
-@media (min-width:641px) {
-	 /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-}
-@media (min-width:961px) {
 	 /* tablet, landscape iPad, lo-res laptops ands desktops */
-}
-@media (min-width:1025px) {
-	 /* big landscape tablets, laptops, and desktops */
-}
-@media (min-width:1281px) {
- /* hi-res laptops and desktops */
-     /* increase font size on higher resolution */
-    body {
-      /* -webkit-text-size-adjust: none;*/
-    }
     .ui-overlay-d {
          background-image: url(../images/blackfadeBG.png);
     }
@@ -183,5 +165,137 @@ and (orientation : portrait) {
         background-repeat: repeat-x;
         background: fixed;
         background-position: center;
+        background-size:cover  !important;
+	 }
+
+}
+@media (min-width:481px) {
+	 /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+	 /* tablet, landscape iPad, lo-res laptops ands desktops */
+    .ui-overlay-d {
+         background-image: url(../images/blackfadeBG.png);
+    }
+    #commonImg {
+        background-image: url(../images/homelogo.png);
+        position:absolute;
+        bottom:0;
+        width:300px;
+        height:60px;
+        left:50%;
+         margin-bottom: 72px;
+        margin-left: -150px;
+     }
+
+     #home {
+        position:relative;
+        background-image: url(../images/blackfadeBG.png);
+        background-repeat: repeat-x;
+        background: fixed;
+        background-position: center;
+        background-size:cover  !important;
+	 }
+
+}
+@media (min-width:641px) {
+	 /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+	 /* tablet, landscape iPad, lo-res laptops ands desktops */
+    .ui-overlay-d {
+         background-image: url(../images/blackfadeBG.png);
+    }
+    #commonImg {
+        background-image: url(../images/homelogo.png);
+        position:absolute;
+        bottom:0;
+        width:300px;
+        height:60px;
+        left:50%;
+         margin-bottom: 72px;
+        margin-left: -150px;
+     }
+
+     #home {
+        position:relative;
+        background-image: url(../images/blackfadeBG.png);
+        background-repeat: repeat-x;
+        background: fixed;
+        background-position: center;
+        background-size:cover  !important;
+	 }
+
+}
+@media (min-width:961px) {
+	 /* tablet, landscape iPad, lo-res laptops ands desktops */
+    .ui-overlay-d {
+         background-image: url(../images/blackfadeBG.png);
+    }
+    #commonImg {
+        background-image: url(../images/homelogo.png);
+        position:absolute;
+        bottom:0;
+        width:300px;
+        height:60px;
+        left:50%;
+         margin-bottom: 72px;
+        margin-left: -150px;
+     }
+
+     #home {
+        position:relative;
+        background-image: url(../images/blackfadeBG.png);
+        background-repeat: repeat-x;
+        background: fixed;
+        background-position: center;
+        background-size:cover  !important;
+	 }
+
+}
+@media (min-width:1025px) {
+	 /* big landscape tablets, laptops, and desktops */
+    .ui-overlay-d {
+         background-image: url(../images/blackfadeBG.png);
+    }
+    #commonImg {
+        background-image: url(../images/homelogo.png);
+        position:absolute;
+        bottom:0;
+        width:300px;
+        height:60px;
+        left:50%;
+         margin-bottom: 72px;
+        margin-left: -150px;
+     }
+
+     #home {
+        position:relative;
+        background-image: url(../images/blackfadeBG.png);
+        background-repeat: repeat-x;
+        background: fixed;
+        background-position: center;
+        background-size:cover  !important;
+	 }
+}
+@media (min-width:1281px) {
+ /* hi-res laptops and desktops */
+    .ui-overlay-d {
+         background-image: url(../images/blackfadeBG.png);
+    }
+    #commonImg {
+        background-image: url(../images/homelogo.png);
+        position:absolute;
+        bottom:0;
+        width:300px;
+        height:60px;
+        left:50%;
+         margin-bottom: 72px;
+        margin-left: -150px;
+     }
+
+     #home {
+        position:relative;
+        background-image: url(../images/blackfadeBG.png);
+        background-repeat: repeat-x;
+        background: fixed;
+        background-position: center;
+        background-size:cover  !important;
 	 }
 }
