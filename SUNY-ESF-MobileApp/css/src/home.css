@@ -10,10 +10,13 @@
 	text-align:center;
 }
 
+/* Android */
+
+/* All Smartphones in portrait and landscape ----------- */
 /* iPhone 2G-4S, portrait and landscape */
 @media only screen 
 and (min-device-width : 320px) 
-and (max-device-width : 480px) {
+and (max-device-width : 480px)  and (-webkit-device-pixel-ratio: 1) {
     /* increase font size on higher resolution */
     body {
       /* -webkit-text-size-adjust: none;*/
@@ -39,17 +42,391 @@ and (max-device-width : 480px) {
         background-position: center;
         min-height:  1400;
      }
+}
+/* Samsung Galaxy S, SII, W  DPI:  1.5*/
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px)  and (-webkit-device-pixel-ratio: 1.5) {
+    /* increase font size on higher resolution */
+    body {
+      /* -webkit-text-size-adjust: none;*/
+    }
+     .ui-overlay-d {
+        background-image: url(../images/blackfadeBG3G.png);
+        background-size:cover  !important;
+        background-size:300% 300%    !important;
+     }
+    #commonImg {
+        background-image: url(../images/homelogo.png);
+        position:absolute;
+        bottom:0;
+        width:300px;
+        height:60px;
+        left:50%;
+        margin-bottom: 72px;
+        margin-left: -150px;
+     }
+     #home {
+        position:relative;
+        background-image: url(../images/blackfadeBG3G.png);
+        background-repeat: repeat-x;
+        background: fixed;
+        background-position: center;
+        min-height:  1400;
+     }
+}
 
+/* LG Optimue LTE  DPI:  1.7*/
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px)  and (-webkit-device-pixel-ratio: 1.7) {
+    /* increase font size on higher resolution */
+    body {
+      /* -webkit-text-size-adjust: none;*/
+    }
+     .ui-overlay-d {
+        background-image: url(../images/blackfadeBG3G.png);
+        background-size:cover  !important;
+        background-size:300% 300%    !important;
+     }
+    #commonImg {
+        background-image: url(../images/homelogo.png);
+        position:absolute;
+        bottom:0;
+        width:300px;
+        height:60px;
+        left:50%;
+        margin-bottom: 72px;
+        margin-left: -150px;
+     }
+     #home {
+        position:relative;
+        background-image: url(../images/blackfadeBG3G.png);
+        background-repeat: repeat-x;
+        background: fixed;
+        background-position: center;
+        min-height:  1400;
+     }
+}
+
+/* All Smartphones in portrait and landscape ----------- */
+/* DPI = 2*/
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) and (-webkit-device-pixel-ratio: 2)  {
+    /* increase font size on higher resolution */
+    body {
+      /* -webkit-text-size-adjust: none;*/
+    }
+     .ui-overlay-d {
+        background-image: url(../images/blackfadeBG3G.png);
+        background-size:cover  !important;
+        background-size:300% 300%    !important;
+     }
+    #commonImg {
+        background-image: url(../images/homelogo.png);
+        position:absolute;
+        bottom:0;
+        width:300px;
+        height:60px;
+        left:50%;
+        margin-bottom: 72px;
+        margin-left: -150px;
+     }
+     #home {
+        position:relative;
+        background-image: url(../images/blackfadeBG3G.png);
+        background-repeat: repeat-x;
+        background: fixed;
+        background-position: center;
+        min-height:  1400;
+     }
+}
+
+/* Nokia */
+@media only screen 
+and (min-device-width : 360px) 
+and (max-device-width : 640px) and (-webkit-device-pixel-ratio: 1)  {
+    /* increase font size on higher resolution */
+    body {
+      /* -webkit-text-size-adjust: none;*/
+    }
+     .ui-overlay-d {
+        background-image: url(../images/blackfadeBG3G.png);
+        background-size:cover  !important;
+        background-size:300% 300%    !important;
+     }
+    #commonImg {
+        background-image: url(../images/homelogo.png);
+        position:absolute;
+        bottom:0;
+        width:300px;
+        height:60px;
+        left:50%;
+        margin-bottom: 72px;
+        margin-left: -150px;
+     }
+     #home {
+        position:relative;
+        background-image: url(../images/blackfadeBG3G.png);
+        background-repeat: repeat-x;
+        background: fixed;
+        background-position: center;
+        min-height:  1400;
+     }
+}
+
+/* Samsung Galaxy 4 */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) and (-webkit-device-pixel-ratio: 3)  {
+    /* increase font size on higher resolution */
+    body {
+      /* -webkit-text-size-adjust: none;*/
+    }
+     .ui-overlay-d {
+        background-image: url(../images/blackfadeBG.png);
+        background-size:cover  !important;
+        background-size:300% 300%    !important;
+     }
+    #commonImg {
+        background-image: url(../images/homelogo.png);
+        position:absolute;
+        bottom:0;
+        width:300px;
+        height:60px;
+        left:50%;
+        margin-bottom: 72px;
+        margin-left: -150px;
+     }
+     #home {
+        position:relative;
+        background-image: url(../images/blackfadeBG.png);
+        background-repeat: repeat-x;
+        background: fixed;
+        background-position: center;
+        min-height:  1400;
+     }
+}
+
+
+/* All Smartphones in portrait ----------- */
+@media only screen 
+and (max-width : 479px) {
+/* YOUR STYLE GOES HERE */
+}
+
+/***** ANDROID DEVICES *****/
+
+/* Android 240 X 320 ----------- */
+/* LG Optimus One */
+@media only screen
+and (max-width: 241px){
+     .ui-overlay-d {
+        background-image: url(../images/blackfadeBG3G.png);
+        background-size:cover  !important;
+        background-size:100% 100%    !important;
+     }
+    #commonImg {
+        background-image: url(../images/homelogo.png);
+        position:absolute;
+        bottom:0;
+        width:300px;
+        height:60px;
+        left:50%;
+        margin-bottom: 72px;
+        margin-left: -150px;
+     }
+     #home {
+        position:relative;
+        background-image: url(../images/blackfadeBG3G.png);
+        background-repeat: repeat-x;
+        background: fixed;
+        background-position: center;
+        min-height:  1400;
+     }
+}
+
+/* Android(Samsung Galaxy) in portrait 380 X 685 ----------- */
+@media only screen
+and (min-device-width : 380px) 
+and (max-device-width : 685px) and(-webkit-device-pixel-ratio: 1.5) {
+    .ui-overlay-d {
+         background-image: url(../images/blackfadeBG.png);
+         background-size:240% 240%    !important;
+    }
+    #commonImg {
+        background-image: url(../images/homelogo.png);
+        position:absolute;
+        bottom:0;
+        width:300px;
+        height:60px;
+        left:50%;
+         margin-bottom: 72px;
+        margin-left: -150px;
+     }
+
+     #home {
+        position:relative;
+        background-image: url(../images/blackfadeBG.png);
+        background-repeat: repeat-x;
+        background: fixed;
+        background-position: center;
+        background-size:cover  !important;
+	 }
+}
+
+/* Android(Samsung Galaxy) in Landscape 685 X  380 ----------- */
+@media only screen
+and (min-width: 680px)
+and (max-width: 690px){
+	 /* big landscape tablets, laptops, and desktops */
+    .ui-overlay-d {
+         background-image: url(../images/blackfadeBG.png);
+         background-size:240% 240%    !important;
+    }
+    #commonImg {
+        background-image: url(../images/homelogo.png);
+        position:absolute;
+        bottom:0;
+        width:300px;
+        height:60px;
+        left:50%;
+         margin-bottom: 72px;
+        margin-left: -150px;
+     }
+
+     #home {
+        position:relative;
+        background-image: url(../images/blackfadeBG.png);
+        background-repeat: repeat-x;
+        background: fixed;
+        background-position: center;
+        background-size:cover  !important;
+	 }
+}
+
+/* Kindle Fire Portrait 600 X 1024 ----------- */
+@media only screen
+and (min-width: 595px)
+and (max-width: 610px){
+	 /* big landscape tablets, laptops, and desktops */
+    .ui-overlay-d {
+         background-image: url(../images/blackfadeBG.png);
+         background-size:240% 240%    !important;
+    }
+    #commonImg {
+        background-image: url(../images/homelogo.png);
+        position:absolute;
+        bottom:0;
+        width:300px;
+        height:60px;
+        left:50%;
+         margin-bottom: 72px;
+        margin-left: -150px;
+     }
+
+     #home {
+        position:relative;
+        background-image: url(../images/blackfadeBG.png);
+        background-repeat: repeat-x;
+        background: fixed;
+        background-position: center;
+        background-size:cover  !important;
+	 }
+}
+
+/* Kindle Fire Landscape 1024 X 600 ----------- */
+@media only screen
+and (min-width: 1000px)
+and (max-width: 1030px){
+    .ui-overlay-d {
+         background-image: url(../images/blackfadeBG.png);
+         background-size:240% 240%    !important;
+    }
+    #commonImg {
+        background-image: url(../images/homelogo.png);
+        position:absolute;
+        bottom:0;
+        width:300px;
+        height:60px;
+        left:50%;
+         margin-bottom: 72px;
+        margin-left: -150px;
+     }
+
+     #home {
+        position:relative;
+        background-image: url(../images/blackfadeBG.png);
+        background-repeat: repeat-x;
+        background: fixed;
+        background-position: center;
+        background-size:cover  !important;
+	 }
+}
+/* Browsers */
+@media (min-width:1281px) {
+ /* hi-res laptops and desktops */
+    .ui-overlay-d {
+         background-image: url(../images/blackfadeBG.png);
+         background-size:240% 240%    !important;
+    }
+    #commonImg {
+        background-image: url(../images/homelogo.png);
+        position:absolute;
+        bottom:0;
+        width:300px;
+        height:60px;
+        left:50%;
+         margin-bottom: 72px;
+        margin-left: -150px;
+     }
+
+     #home {
+        position:relative;
+        background-image: url(../images/blackfadeBG.png);
+        background-repeat: repeat-x;
+        background: fixed;
+        background-position: center;
+        background-size:cover  !important;
+	 }
+}
+
+/* Motorola Droid 3, 4, Razr, Atriz 4G, Atrix 2  ----------- */
+@media only screen
+and (min-width: 540px)
+and (max-width: 960px){
+
+ /* hi-res laptops and desktops */
+    .ui-overlay-d {
+         background-image: url(../images/blackfadeBG.png);
+         background-size:240% 240%    !important;
+    }
+    #commonImg {
+        background-image: url(../images/homelogo.png);
+        position:absolute;
+        bottom:0;
+        width:300px;
+        height:60px;
+        left:50%;
+         margin-bottom: 72px;
+        margin-left: -150px;
+     }
+
+     #home {
+        position:relative;
+        background-image: url(../images/blackfadeBG.png);
+        background-repeat: repeat-x;
+        background: fixed;
+        background-position: center;
+        background-size:cover  !important;
+	 }
 }
 
 /* iPad Portait and Landscape */
 @media only screen 
 and (min-device-width : 768px) 
 and (max-device-width : 1024px)  {
-    /* increase font size on higher resolution */
-   /* body {
-      /* -webkit-text-size-adjust: none;*/
-   /* }*/
      .ui-overlay-d {
      background-image: url(../images/blackfadeBG.png);
      background-size:240% 240%    !important;
@@ -66,29 +443,13 @@ and (max-device-width : 1024px)  {
         margin-left: -150px;
      }
      #home {
-       /* position:relative;
-		background-image: url(../images/blackfadeBG.png);*/
-		/*background-repeat: repeat;*/
+        position:relative;
+		background-image: url(../images/blackfadeBG.png);
+		background-repeat: repeat;
 		background: fixed;
 		background-position: bottom;
 		background-size:cover  !important;
 	 }
-}
-
-/* iPad in Landscape */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : landscape) {
-
-}
-
-/* iPad in Portrait */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : portrait) {
-
 }
 
 /* iPhone 5 Portrait and Landscape */
@@ -119,183 +480,5 @@ and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71) and (device
         background-repeat: repeat-x;
         background: fixed;
         background-position: center;
-	 }
-}
-
-/* iPhone 5 Landscape */
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 568px) 
-and (orientation : landscape) { 
-
-}
-
-/* iPhone 5 Portrait */
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 568px) 
-and (orientation : portrait) { 
-
-}
-
-/* Android */
-
-
-/* Android */
-@media (min-width:320px) {
-	 /* smartphones, iPhone, portrait 480x320 phones */
-	 /* tablet, landscape iPad, lo-res laptops ands desktops */
-    .ui-overlay-d {
-         background-image: url(../images/blackfadeBG.png);
-    }
-    #commonImg {
-        background-image: url(../images/homelogo.png);
-        position:absolute;
-        bottom:0;
-        width:300px;
-        height:60px;
-        left:50%;
-         margin-bottom: 72px;
-        margin-left: -150px;
-     }
-
-     #home {
-        position:relative;
-        background-image: url(../images/blackfadeBG.png);
-        background-repeat: repeat-x;
-        background: fixed;
-        background-position: center;
-        background-size:cover  !important;
-	 }
-
-}
-@media (min-width:481px) {
-	 /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-	 /* tablet, landscape iPad, lo-res laptops ands desktops */
-    .ui-overlay-d {
-         background-image: url(../images/blackfadeBG.png);
-    }
-    #commonImg {
-        background-image: url(../images/homelogo.png);
-        position:absolute;
-        bottom:0;
-        width:300px;
-        height:60px;
-        left:50%;
-         margin-bottom: 72px;
-        margin-left: -150px;
-     }
-
-     #home {
-        position:relative;
-        background-image: url(../images/blackfadeBG.png);
-        background-repeat: repeat-x;
-        background: fixed;
-        background-position: center;
-        background-size:cover  !important;
-	 }
-
-}
-@media (min-width:641px) {
-	 /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-	 /* tablet, landscape iPad, lo-res laptops ands desktops */
-    .ui-overlay-d {
-         background-image: url(../images/blackfadeBG.png);
-    }
-    #commonImg {
-        background-image: url(../images/homelogo.png);
-        position:absolute;
-        bottom:0;
-        width:300px;
-        height:60px;
-        left:50%;
-         margin-bottom: 72px;
-        margin-left: -150px;
-     }
-
-     #home {
-        position:relative;
-        background-image: url(../images/blackfadeBG.png);
-        background-repeat: repeat-x;
-        background: fixed;
-        background-position: center;
-        background-size:cover  !important;
-	 }
-
-}
-@media (min-width:961px) {
-	 /* tablet, landscape iPad, lo-res laptops ands desktops */
-    .ui-overlay-d {
-         background-image: url(../images/blackfadeBG.png);
-    }
-    #commonImg {
-        background-image: url(../images/homelogo.png);
-        position:absolute;
-        bottom:0;
-        width:300px;
-        height:60px;
-        left:50%;
-         margin-bottom: 72px;
-        margin-left: -150px;
-     }
-
-     #home {
-        position:relative;
-        background-image: url(../images/blackfadeBG.png);
-        background-repeat: repeat-x;
-        background: fixed;
-        background-position: center;
-        background-size:cover  !important;
-	 }
-
-}
-@media (min-width:1025px) {
-	 /* big landscape tablets, laptops, and desktops */
-    .ui-overlay-d {
-         background-image: url(../images/blackfadeBG.png);
-    }
-    #commonImg {
-        background-image: url(../images/homelogo.png);
-        position:absolute;
-        bottom:0;
-        width:300px;
-        height:60px;
-        left:50%;
-         margin-bottom: 72px;
-        margin-left: -150px;
-     }
-
-     #home {
-        position:relative;
-        background-image: url(../images/blackfadeBG.png);
-        background-repeat: repeat-x;
-        background: fixed;
-        background-position: center;
-        background-size:cover  !important;
-	 }
-}
-@media (min-width:1281px) {
- /* hi-res laptops and desktops */
-    .ui-overlay-d {
-         background-image: url(../images/blackfadeBG.png);
-    }
-    #commonImg {
-        background-image: url(../images/homelogo.png);
-        position:absolute;
-        bottom:0;
-        width:300px;
-        height:60px;
-        left:50%;
-         margin-bottom: 72px;
-        margin-left: -150px;
-     }
-
-     #home {
-        position:relative;
-        background-image: url(../images/blackfadeBG.png);
-        background-repeat: repeat-x;
-        background: fixed;
-        background-position: center;
-        background-size:cover  !important;
 	 }
 }
