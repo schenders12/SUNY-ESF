@@ -39,7 +39,8 @@
             }
             var html =
                 "<div id=\"home\" data-role=\"page\">" + header +
-                "  <div id=\"homebuttonGrid\" data-role=\"content\"></div>" +
+                //"  <div id=\"homebuttonGrid\" data-role=\"content\"></div>" +
+                "  <div id=\"homebuttonGrid\" class=\"ui-content\" role=\"main\"></div>" +
                 //"  <img src = \"images/homelogo.png\" style=\"position:absolute;bottom:0; width:300px; height:60px; left:50%; margin-bottom: 72px;margin-left: -150px\">" + 
                // "  <img src = \"images/homelogo.png\" style=\"bottom: 45; width: 300px; position: absolute\">" + 
                 //"  <img src = \"images/homelogo.png\" class=\"homeImg\">" + 
@@ -51,6 +52,9 @@
             this.renderFooter();
             this.renderTheme(true);
             this.$el.bind("pageinit", _.bind(function() {
+                this.render();
+            }, this));
+            this.$el.bind("pagecontainerbeforeshow", _.bind(function() {
                 this.render();
             }, this));
             this.eventAggr.bind("subapp.update", this.render);
@@ -69,7 +73,6 @@
             html += "<a href=\"http://www.esf.edu\" id=mainSite data-target=\"_blank\" data-transition=\"slideup\" style=\"text-decoration: none\"> <img src=\"images/main-site_icon.png\" /></a></div>";
 
             this.$("#homebuttonGrid").html(html);
-
         },
     });
 

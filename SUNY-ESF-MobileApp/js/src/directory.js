@@ -137,14 +137,24 @@
                 " <div id = \"commonHeader\"></div>" + 
                 "  <div data-role=\"content\">" +
                 "    <form data-ajax=\"false\">" +
-                "      <fieldset data-role=\"fieldcontain\">" +
-                "        <label for=\"paramSelect\">Search ESF people by</label>" +
-                "        <select id=\"paramSelect\" data-native-menu=\"false\">" +
-                "        <option value=\"LastName\">Last Name</option>" +
-                "        <option value=\"FirstName\">First Name</option>" +
-                "        <option value=\"Building\">Building</option>" +
-                "        <option value=\"Office\">Office, Unit, Dept</option>" +
-                "      </select>" +
+                "      <fieldset data-role=\"controlgroup\">" +
+                "      <legend>Search ESF people by:</legend>" +
+                "      <input type=\"radio\" name=\"rbnNumber\" id=\"radio-choice-1\" data-inline=\"true\" value=\"LastName\" checked=\"checked\" />" +
+                "      <label for=\"radio-choice-1\">Last Name</label>" +
+                "      <input type=\"radio\" name=\"rbnNumber\" id=\"radio-choice-2\" data-inline=\"true\" value=\"FirstName\"  />" +
+                "      <label for=\"radio-choice-2\">First Name</label>" +
+                "      <input type=\"radio\" name=\"rbnNumber\" id=\"radio-choice-3\" data-inline=\"true\" value=\"Building\"  />" +
+                "      <label for=\"radio-choice-3\">Building</label>" +
+                "      <input type=\"radio\" name=\"rbnNumber\" id=\"radio-choice-4\" data-inline=\"true\" value=\"Office\"  />" +
+                "      <label for=\"radio-choice-4\">Office, Unit, Dept</label>" +
+
+                // "        <label for=\"paramSelect\">Search ESF people by</label>" +
+                //"        <select id=\"paramSelect\" data-native-menu=\"false\">" +
+                //"        <option value=\"LastName\">Last Name</option>" +
+                // "        <option value=\"FirstName\">First Name</option>" +
+                //"        <option value=\"Building\">Building</option>" +
+                // "        <option value=\"Office\">Office, Unit, Dept</option>" +
+                //"      </select>" +
                 "      </fieldset>" +
                 "      <fieldset data-role=\"fieldcontain\">" +
                 "        <label for=\"searchValue\">Search for:</label>" +
@@ -192,7 +202,9 @@
         },
         submit: function(e) {
             // Called when 'Search' button is selected
-            this.router.showResults(this.$("select").val(), $.trim(this.$("#searchValue").val()));
+            var selValue = $('input[name=rbnNumber]:checked').val(); 
+           // this.router.showResults(this.$("select").val(), $.trim(this.$("#searchValue").val()));
+            this.router.showResults(this.$('input[name=rbnNumber]:checked').val(), $.trim(this.$("#searchValue").val()));
             return false;
         },
         renderAutocomplete: function() {

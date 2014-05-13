@@ -30,33 +30,79 @@
         $.mobile.linkBindingEnabled = false;
         $.mobile.pushStateEnabled = false;
         $.mobile.autoInitializePage = false;
-       // $.mobile.defaultPageTransition = "slideup";
+        $.mobile.defaultPageTransition = "none";
 		$.mobile.allowCrossDomainPages = true;
 		$.support.cors = true;
 		//$.mobile.page.prototype.options.degradeInputs.date = true;
+		
+		// Hack to fix possible bug in jquery mobile 1.3.2
+		// Mobile loader widget is not created properly
+        $.mobile.loaderWidget = $.mobile.loaderWidget || $( $.mobile.loader.prototype.defaultHtml ).loader();
+        //$window.trigger( "pagecontainercreate" );
+
+        $.mobile.loader.prototype.options.text = "ESF App loading...";
+        $.mobile.loader.prototype.options.textVisible = false;
+        $.mobile.loader.prototype.options.theme = "a";
+        $.mobile.loader.prototype.options.html = "";
     });
     /*
      * Hide/show the page loading indicator during ajax loads
      */
     $(document).bind("ajaxStart", function() {
         $.mobile.showPageLoadingMsg();
+       // $.mobile.loading('show');
     });
     $(document).bind("ajaxStop", function() {
         $.mobile.hidePageLoadingMsg();
+        //$.mobile.loading('hide');
     });
-    // IOS 7 and above:  Prevent status bar from overlaying app
+
     $(document).bind("deviceready", function() {
+         // IOS 7 and above:  Prevent status bar from overlaying app
 		if (window.device) {
 			if (window.device.platform === 'iOS' && parseFloat(window.device.version) >= 7.0) {  
                 StatusBar.overlaysWebView(false); //Turns off web view overlay.
                 //StatusBar.backgroundColorByName( "green" ); // turn status bar green
 		   }
 		}
+        // Register for Push Notifications
+        var pushNotification = window.plugins.pushNotification;
+        if ( device.platform == 'android' || device.platform == 'Android' )
+        {
+           pushNotification.register(
+              successHandler,
+              errorHandler, {
+                  "senderID": "61134333091",
+                  "ecb":"onNotificationGCM"
+              });
+        }
+        else
+        {
+           pushNotification.register(
+              tokenHandler,
+              errorHandler, {
+                  "badge":"true",
+                  "sound":"true",
+                  "alert":"true",
+                  "ecb":"onNotificationAPN"
+              });
+        }
+
     });
+
+    // result contains any message sent from the plugin call
+    function successHandler (result) {
+        alert('result = ' + result);
+    }
+
+    // result contains any error description text returned from the plugin call
+    function errorHandler (error) {
+        alert('error = ' + error);
+    }
     $(window).bind("orientationchange", function (orientation) {
 
     });
-	
+
 	// Browser Debug - fire Device Ready/Orientation change events
    // window.setTimeout(function() {
      //  var e = document.createEvent('Events'); 
@@ -67,6 +113,54 @@
 	   //$(window).trigger('orientationchange'); // fire the orientation change event at the start, to make sure
 	   
    // }, 50);
+
+function onNotificationGCM(e) {
+    $("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
+ 
+    switch( e.event )
+    {
+    case 'registered':
+        if ( e.regid.length > 0 )
+        {
+            $("#app-status-ul").append('<li>REGISTERED -> REGID:' + e.regid + "</li>");
+            
+            console.log("regID = " + e.regid);
+        }
+    break;
+ 
+    case 'message':
+        if ( e.foreground )
+        {
+            $("#app-status-ul").append('<li>--INLINE NOTIFICATION--' + '</li>');
+            var my_media = new Media("/android_asset/www/"+e.soundname);
+            my_media.play();
+        }
+        else
+        { 
+            if ( e.coldstart )
+            {
+                $("#app-status-ul").append('<li>--COLDSTART NOTIFICATION--' + '</li>');
+            }
+            else
+            {
+                $("#app-status-ul").append('<li>--BACKGROUND NOTIFICATION--' + '</li>');
+            }
+        }
+ 
+        $("#app-status-ul").append('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
+        $("#app-status-ul").append('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
+    break;
+ 
+    case 'error':
+        $("#app-status-ul").append('<li>ERROR -> MSG:' + e.msg + '</li>');
+    break;
+ 
+    default:
+        $("#app-status-ul").append('<li>EVENT -> Unknown, an event was received and we do not know what it is</li>');
+    break;
+  }
+}
+
     /*
      * Shared event aggregator passed to all routers/views extending our base classes.
      * Useful for communication of events between subapps.
@@ -235,6 +329,7 @@
                 $.when(ThemesUtil.initialize()).then(function() {
                     Backbone.history.start({ pushState: false });
                 });
+
             }
     };
 
@@ -293,6 +388,7 @@
             // Call our "super" method
             Backbone.Router.prototype.navigate.call(this, path, options);
             var pageId = page.el.id;
+
             if ($.mobile.activePage && ($.mobile.activePage[0].id !== pageId)) {
                 $.mobile.changePage("#" + pageId, this.pageOptions);
             }
