@@ -20,6 +20,17 @@
     } else {
         var Storage = window.localStorage;
     }
+	
+	function successHandler (result) {
+			alert('nativePluginResultHandler - '+result);
+				console.log('nativePluginResultHandler: '+result);
+
+			}
+        
+			function errorHandler (error) {
+				alert('nativePluginErrorHandler - '+error);
+				console.log('nativePluginErrorHandler: '+error);
+			}
 
     /*
      * jQuery Mobile global settings
@@ -68,7 +79,10 @@
 
         // Google analytics
         gaESF.gaStart();
-
+		var gaPlugin;
+    gaPlugin = window.plugins.gaPlugin;
+    gaPlugin.init(successHandler, errorHandler, "UA-5865890-4", 10);
+	
         // Register for Push Notifications
         pushESF.pushStart();
 

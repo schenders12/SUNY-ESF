@@ -5,13 +5,13 @@
     gaESF = {
        esfAlreadyHere: "false",
        esfGAPermission: "false",
-       esfGAPlugin: null,
+       gaPlugin: null,
        gaStart: function() {
              console.log('Starting Google Analytics...');
              alert('Starting Google Analytics...');
              if (window.plugins) {
                 alert("Registering for Phone Gap....");
-                this.esfGAPlugin = window.plugins.gaPlugin;
+                this.gaPlugin = window.plugins.gaPlugin;
                 alert("Local storage...");
                 this.esfAlreadyHere = window.localStorage.getItem('esfAlreadyHere');
                 this.esfGAPermission = window.localStorage.getItem('esfGAPermission');
@@ -31,13 +31,13 @@
              }
        },
        gaInit: function() {
-             this.esfGAPlugin.init(gaSuccessInitHandler, gaErrorInitHandler, "UA-5865890-4", 10);
-             this.esfGAPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "Index.html");
+             this.gaPlugin.init(gaSuccessInitHandler, gaErrorInitHandler, "UA-5865890-4", 10);
+             this.gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "Index.html");
              console.log('Tracking Index.html!!!');
        },
        gaTrackPage: function(pageID) {
-             if (this.esfGAPlugin) { 
-                this.esfGAPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, pageID);
+             if (this.gaPlugin) { 
+                this.gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, pageID);
              }
              console.log('Tracking ' + pageID +  '!!!');
        },
@@ -75,7 +75,7 @@
        exit: function() {
            // deactivate Google analytics
            //   alert("Deactivating ga...");
-           this.esfGAPlugin.exit(nativePluginResultHandler, nativePluginErrorHandler);
+           this.gaPlugin.exit(nativePluginResultHandler, nativePluginErrorHandler);
        }
 };
 
