@@ -12,6 +12,7 @@
              //if (window.plugins) {
                 alert("Registering for Phone Gap....");
                 this.esfGAPlugin = window.plugins.gaPlugin;
+                alert("Local storage...");
                 this.esfAlreadyHere = window.localStorage.getItem('esfAlreadyHere');
                 this.esfGAPermission = window.localStorage.getItem('esfGAPermission');
                 if (!esfAlreadyHere) {
