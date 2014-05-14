@@ -9,7 +9,7 @@
        gaStart: function() {
              console.log('Starting Google Analytics...');
              alert('Starting Google Analytics...');
-             if (window.plugins) {
+             //if (window.plugins) {
                 alert("Registering for Phone Gap....");
                 this.esfGAPlugin = window.plugins.gaPlugin;
                 this.esfAlreadyHere = window.localStorage.getItem('esfAlreadyHere');
@@ -23,11 +23,11 @@
                 } else {
                    console.log('We are not allowed to collect data');
                 }
-             }
-             else {
-                 console.log('No plugins found, could not start Google Analytics.');
-                 alert("No GA");
-             }
+            // }
+            // else {
+            //     console.log('No plugins found, could not start Google Analytics.');
+            //     alert("No GA");
+            // }
        },
        gaInit: function() {
              this.esfGAPlugin.init(gaSuccessInitHandler, gaErrorInitHandler, "UA-5865890-4", 10);
