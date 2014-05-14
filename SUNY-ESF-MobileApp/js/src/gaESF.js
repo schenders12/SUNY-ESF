@@ -8,6 +8,7 @@
        esfGAPlugin: null,
        gaStart: function() {
              console.log('Starting Google Analytics...');
+             alert('Starting Google Analytics...');
              if (window.plugins) {
                 alert("Registering for Phone Gap....");
                 this.esfGAPlugin = window.plugins.gaPlugin;
@@ -15,6 +16,7 @@
                 this.esfGAPermission = window.localStorage.getItem('esfGAPermission');
                 if (!esfAlreadyHere) {
                    console.log('Confirm Analytics');
+             alert('Confirm...');
                    this.gaConfirm();
                 } else if (esfAlreadyHere && esfGAPermission == 'true') {
                    this.gaInit();
@@ -39,6 +41,7 @@
        },
        gaConfirm: function () {
           // Confirming this is mandatory by Google
+             alert('Navigator...');
           navigator.notification.confirm('We would like your permission to collect some anonymous usage data to help improve the ESF Mobile app.',gaPermissionCallback, 'Attention', 'Allow,Deny');
        },
        gaPermissionCallback: function () {
