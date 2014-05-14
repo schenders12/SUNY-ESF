@@ -59,107 +59,39 @@
 
     $(document).bind("deviceready", function() {
          // IOS 7 and above:  Prevent status bar from overlaying app
-		if (window.device) {
-			if (window.device.platform === 'iOS' && parseFloat(window.device.version) >= 7.0) {  
+        if (window.device) {
+           if (window.device.platform === 'iOS' && parseFloat(window.device.version) >= 7.0) {  
                 StatusBar.overlaysWebView(false); //Turns off web view overlay.
                 //StatusBar.backgroundColorByName( "green" ); // turn status bar green
-		   }
-		}
+           }
+        }
+
+        // Google analytics
+        gaESF.gaStart();
+
         // Register for Push Notifications
-        var pushNotification = window.plugins.pushNotification;
-        if ( device.platform == 'android' || device.platform == 'Android' )
-        {
-           pushNotification.register(
-              successHandler,
-              errorHandler, {
-                  "senderID": "61134333091",
-                  "ecb":"onNotificationGCM"
-              });
-        }
-        else
-        {
-           pushNotification.register(
-              tokenHandler,
-              errorHandler, {
-                  "badge":"true",
-                  "sound":"true",
-                  "alert":"true",
-                  "ecb":"onNotificationAPN"
-              });
-        }
+        pushESF.pushStart();
 
     });
 
-    // result contains any message sent from the plugin call
-    function successHandler (result) {
-        alert('result = ' + result);
-    }
-
-    // result contains any error description text returned from the plugin call
-    function errorHandler (error) {
-        alert('error = ' + error);
-    }
     $(window).bind("orientationchange", function (orientation) {
 
     });
 
 	// Browser Debug - fire Device Ready/Orientation change events
-   // window.setTimeout(function() {
-     //  var e = document.createEvent('Events'); 
-      // e.initEvent("deviceready"); 
+    window.setTimeout(function() {
+		alert("Device trigger....");
+       var e = document.createEvent('Events'); 
+      // e.initEvent("unload"); 
+       e.initEvent("deviceready"); 
      //  e.initEvent("orientationchange"); 
-     //  document.dispatchEvent(e);
+       document.dispatchEvent(e);
 	   
 	   //$(window).trigger('orientationchange'); // fire the orientation change event at the start, to make sure
 	   
-   // }, 50);
+    }, 500);
 
-function onNotificationGCM(e) {
-    $("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
- 
-    switch( e.event )
-    {
-    case 'registered':
-        if ( e.regid.length > 0 )
-        {
-            $("#app-status-ul").append('<li>REGISTERED -> REGID:' + e.regid + "</li>");
-            
-            console.log("regID = " + e.regid);
-        }
-    break;
- 
-    case 'message':
-        if ( e.foreground )
-        {
-            $("#app-status-ul").append('<li>--INLINE NOTIFICATION--' + '</li>');
-            var my_media = new Media("/android_asset/www/"+e.soundname);
-            my_media.play();
-        }
-        else
-        { 
-            if ( e.coldstart )
-            {
-                $("#app-status-ul").append('<li>--COLDSTART NOTIFICATION--' + '</li>');
-            }
-            else
-            {
-                $("#app-status-ul").append('<li>--BACKGROUND NOTIFICATION--' + '</li>');
-            }
-        }
- 
-        $("#app-status-ul").append('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
-        $("#app-status-ul").append('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
-    break;
- 
-    case 'error':
-        $("#app-status-ul").append('<li>ERROR -> MSG:' + e.msg + '</li>');
-    break;
- 
-    default:
-        $("#app-status-ul").append('<li>EVENT -> Unknown, an event was received and we do not know what it is</li>');
-    break;
-  }
-}
+
 
     /*
      * Shared event aggregator passed to all routers/views extending our base classes.
@@ -391,6 +323,8 @@ function onNotificationGCM(e) {
 
             if ($.mobile.activePage && ($.mobile.activePage[0].id !== pageId)) {
                 $.mobile.changePage("#" + pageId, this.pageOptions);
+                // Track page view with GA
+                gaESF.gaTrackPage(pageId);
             }
 
         }
