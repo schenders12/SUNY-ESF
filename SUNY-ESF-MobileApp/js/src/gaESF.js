@@ -26,6 +26,7 @@
              }
              else {
                  console.log('No plugins found, could not start Google Analytics.');
+                 alert("No GA");
              }
        },
        gaInit: function() {
