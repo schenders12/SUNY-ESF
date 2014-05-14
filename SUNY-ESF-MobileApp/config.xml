@@ -44,6 +44,7 @@
 		<gap:plugin name="org.apache.cordova.device"  />
 		<gap:plugin name="com.phonegap.plugin.statusbar"  version="1.1.0"  />
 		<gap:plugin name="com.phonegap.plugins.pushplugin" />
+		<gap:plugin name="com.adobe.plugins.gaplugin" />
 		<icon src="images/esfIcon.png" gap:platform="ios" width="57" height="57" />
 		<icon src="images/esfIcon_72x72.png" gap:platform="ios" width="72" height="72" />
 		<icon src="images/esfIcon_114x114.png" gap:platform="ios" width="114" height="114" />
