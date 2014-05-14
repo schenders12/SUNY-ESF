@@ -79,17 +79,17 @@
     });
 
 	// Browser Debug - fire Device Ready/Orientation change events
-    window.setTimeout(function() {
-		alert("Device trigger....");
-       var e = document.createEvent('Events'); 
+    //window.setTimeout(function() {
+		//alert("Device trigger....");
+      // var e = document.createEvent('Events'); 
       // e.initEvent("unload"); 
-       e.initEvent("deviceready"); 
+      // e.initEvent("deviceready"); 
      //  e.initEvent("orientationchange"); 
-       document.dispatchEvent(e);
+      // document.dispatchEvent(e);
 	   
 	   //$(window).trigger('orientationchange'); // fire the orientation change event at the start, to make sure
 	   
-    }, 500);
+    //}, 500);
 
 
 
