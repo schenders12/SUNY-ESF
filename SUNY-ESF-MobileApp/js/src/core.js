@@ -81,6 +81,7 @@
         gaESF.gaStart();
 		var gaPlugin;
     gaPlugin = window.plugins.gaPlugin;
+    alert(gaPlugin);
     gaPlugin.init(successHandler, errorHandler, "UA-5865890-4", 10);
 	
         // Register for Push Notifications
