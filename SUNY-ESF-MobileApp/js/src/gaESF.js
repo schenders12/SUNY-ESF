@@ -19,7 +19,8 @@
                 if (!this.esfAlreadyHere) {
                    console.log('Confirm Analytics');
              alert('Confirm...');
-                   this.gaConfirm();
+                   //this.gaConfirm();
+                   this.gaPermissionCallback;
                 } else if (esfAlreadyHere && esfGAPermission == 'true') {
                    this.gaInit();
                 } else {
@@ -45,26 +46,23 @@
        gaConfirm: function () {
           // Confirming this is mandatory by Google
              alert('Navigator...');
-             if (navigator) {
           navigator.notification.confirm('We would like your permission to collect some anonymous usage data to help improve the ESF Mobile app.',gaPermissionCallback, 'Attention', 'Allow,Deny');
-             }
-             else
-             alert("No Navigator");
-       }
+
        },
        gaPermissionCallback: function () {
-             if (button === 1) {
+           alert("Permission...");
+            // if (button === 1) {
                 // Collect data and initialize 
                 window.localStorage.setItem('esfAlreadyHere', 'true');
                 window.localStorage.setItem('esfGAPermission', 'true');
                 console.log('Successfully received permission for Google Analytics   :):) !!');
                 this.gaInit();
-             } else if (button === 2) {
+            // } else if (button === 2) {
                 // Save choices to not ask again
-                window.localStorage.setItem('esfAlreadyHere', 'true');
-                window.localStorage.setItem('esfGAPermission', 'false')
-                console.log('Did not receive permission for Google Analytics   :(:( !!');
-        }
+               // window.localStorage.setItem('esfAlreadyHere', 'true');
+                //window.localStorage.setItem('esfGAPermission', 'false')
+                //console.log('Did not receive permission for Google Analytics   :(:( !!');
+        //}
        },
        gaSuccessInitHandler: function () {
              console.log('Successfully initialized Google Analytics   :):) !!');
