@@ -42,7 +42,7 @@
        gaTrackPage: function(pageID) {
        	alert("Tracking...");
             // if (gaPlugin) { 
-                gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, pageID);
+                gaPlugin.trackPage( this.nativePluginResultHandler, this.nativePluginErrorHandler, pageID);
              //}
              console.log('Tracking ' + pageID +  '!!!');
           alert('Tracking ' + pageID +  '!!!');
@@ -87,7 +87,7 @@
        exit: function() {
            // deactivate Google analytics
         alert("Deactivating ga...");
-           gaPlugin.exit(nativePluginResultHandler, nativePluginErrorHandler);
+           gaPlugin.exit(this.nativePluginResultHandler, this.nativePluginErrorHandler);
        }
 };
 
