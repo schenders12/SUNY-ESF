@@ -45,7 +45,12 @@
        gaConfirm: function () {
           // Confirming this is mandatory by Google
              alert('Navigator...');
+             if (navigator) {
           navigator.notification.confirm('We would like your permission to collect some anonymous usage data to help improve the ESF Mobile app.',gaPermissionCallback, 'Attention', 'Allow,Deny');
+             }
+             else
+             alert("No Navigator");
+       }
        },
        gaPermissionCallback: function () {
              if (button === 1) {
