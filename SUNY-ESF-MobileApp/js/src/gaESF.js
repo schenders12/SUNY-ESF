@@ -9,18 +9,18 @@
        esfGAPermission: "false",
        gaStart: function() {
              console.log('Starting Google Analytics...');
-             alert('Starting Google Analytics...');
+          alert('Starting Google Analytics...');
              if (window.plugins) {
-                alert("Registering for Phone Gap....");
+             alert("Registering for Phone Gap....");
                 gaPlugin = window.plugins.gaPlugin;
-                alert("Local storage...");
+             alert("Local storage...");
                 this.esfAlreadyHere = window.localStorage.getItem('esfAlreadyHere');
                 this.esfGAPermission = window.localStorage.getItem('esfGAPermission');
                 if (!this.esfAlreadyHere) {
                    console.log('Confirm Analytics');
-             alert('Confirm...');
+             alert('Confirm permission...');
                    //this.gaConfirm();
-                   this.gaPermissionCallback;
+                   this.gaPermissionCallback();
                 } else if (esfAlreadyHere && esfGAPermission == 'true') {
                    this.gaInit();
                 } else {
@@ -33,20 +33,23 @@
              }
        },
        gaInit: function() {
+		   alert("GaInit...");
              gaPlugin.init(gaSuccessInitHandler, gaErrorInitHandler, "UA-5865890-4", 10);
              gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "Index.html");
              console.log('Tracking Index.html!!!');
+          alert('Tracking Index.html!!!');
        },
        gaTrackPage: function(pageID) {
              if (gaPlugin) { 
                 gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, pageID);
              }
              console.log('Tracking ' + pageID +  '!!!');
+          alert('Tracking ' + pageID +  '!!!');
        },
        gaConfirm: function () {
           // Confirming this is mandatory by Google
-             alert('Navigator...');
-          navigator.notification.confirm('We would like your permission to collect some anonymous usage data to help improve the ESF Mobile app.',gaPermissionCallback, 'Attention', 'Allow,Deny');
+       alert('Navigator...');
+          navigator.notification.confirm('We would like your permission to collect some anonymous usage data to help improve the ESF Mobile app.',this.gaPermissionCallback, 'Attention', 'Allow,Deny');
 
        },
        gaPermissionCallback: function () {
@@ -66,19 +69,23 @@
        },
        gaSuccessInitHandler: function () {
              console.log('Successfully initialized Google Analytics   :):) !!');
+          alert('Successfully initialized Google Analytics   :):) !!');
        },
        gaErrorInitHandler: function () {
              console.log('Failed to initialize Google Analytics :(:(:( ');
+          alert('Failed to initialize Google Analytics :(:(:( ');
        },
        nativePluginResultHandler: function () {
              console.log('Successfully tracking Index.html   :):) !!');
+          alert('Successfully tracking Index.html   :):) !!');
        },
        nativePluginErrorHandler: function () {
              console.log('Failed to track Index.html:(:(:( ');
+          alert('Failed to track Index.html:(:(:( ');
        },
        exit: function() {
            // deactivate Google analytics
-           //   alert("Deactivating ga...");
+        alert("Deactivating ga...");
            gaPlugin.exit(nativePluginResultHandler, nativePluginErrorHandler);
        }
 };
