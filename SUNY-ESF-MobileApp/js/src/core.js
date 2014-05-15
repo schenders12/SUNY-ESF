@@ -342,7 +342,9 @@
             if ($.mobile.activePage && ($.mobile.activePage[0].id !== pageId)) {
                 $.mobile.changePage("#" + pageId, this.pageOptions);
                 // Track page view with GA
+                alert("Calling gaTrackPage...");
                 gaESF.gaTrackPage(pageId);
+                alert("Called gaTrackPage");
             }
 
         }
