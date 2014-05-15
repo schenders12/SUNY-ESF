@@ -20,17 +20,6 @@
     } else {
         var Storage = window.localStorage;
     }
-	
-	function successHandler (result) {
-			alert('nativePluginResultHandler - '+result);
-				console.log('nativePluginResultHandler: '+result);
-
-			}
-        
-			function errorHandler (error) {
-				alert('nativePluginErrorHandler - '+error);
-				console.log('nativePluginErrorHandler: '+error);
-			}
 
     /*
      * jQuery Mobile global settings
@@ -77,18 +66,9 @@
 
         // Google analytics
        gaESF.gaStart();
-       //alert("Init GA...");
-       ////var gaPlugin;
-	//   alert("Window.Phonegap: " + window.PhoneGap);
-	//   alert("Window.cordova: " + window.cordova);
-	 //  alert("Window.Cordova: " + window.Cordova);
-	 //  alert("Ors " + window.PhoneGap || window.cordova || window.Cordova);
-       //gaPlugin = window.plugins.gaPlugin;
-      // alert("Done with init!!!");
-       //gaPlugin.init(successHandler, errorHandler, "UA-5865890-4", 10);
-	
-        // Register for Push Notifications
-        pushESF.pushStart();
+
+       // Register for Push Notifications
+       pushESF.pushStart();
 
     });
 
@@ -342,9 +322,7 @@
             if ($.mobile.activePage && ($.mobile.activePage[0].id !== pageId)) {
                 $.mobile.changePage("#" + pageId, this.pageOptions);
                 // Track page view with GA
-                alert("Calling gaTrackPage..." + pageId);
                 gaESF.gaTrackPage(pageId);
-                alert("Called gaTrackPage");
             }
 
         }

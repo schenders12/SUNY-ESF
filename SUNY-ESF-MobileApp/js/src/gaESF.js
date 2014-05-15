@@ -9,7 +9,6 @@
        esfGAPermission: "false",
        gaStart: function() {
              console.log('Starting Google Analytics...');
-          alert('Starting Google Analytics...');
              if (window.plugins) {
              alert("Registering for Phone Gap....");
                 gaPlugin = window.plugins.gaPlugin;
@@ -19,9 +18,9 @@
                 if (!this.esfAlreadyHere) {
                    console.log('Confirm Analytics');
              alert('Confirm permission...');
-                   //this.gaConfirm();
-                   this.gaPermissionCallback();
-                } else if (esfAlreadyHere && esfGAPermission == 'true') {
+                   this.gaConfirm();
+                   //this.gaPermissionCallback();
+                } else if (this.esfAlreadyHere && this.esfGAPermission == 'true') {
                    this.gaInit();
                 } else {
                    console.log('We are not allowed to collect data');
@@ -41,9 +40,7 @@
        },
        gaTrackPage: function(pageID) {
        	alert("Tracking...");
-            // if (gaPlugin) { 
                 gaPlugin.trackPage( this.nativePluginResultHandler, this.nativePluginErrorHandler, pageID);
-             //}
              console.log('Tracking ' + pageID +  '!!!');
           alert('Tracking ' + pageID +  '!!!');
        },
