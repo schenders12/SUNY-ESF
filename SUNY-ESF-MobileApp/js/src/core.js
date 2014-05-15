@@ -49,8 +49,6 @@
 		// Hack to fix possible bug in jquery mobile 1.3.2
 		// Mobile loader widget is not created properly
         $.mobile.loaderWidget = $.mobile.loaderWidget || $( $.mobile.loader.prototype.defaultHtml ).loader();
-        //$window.trigger( "pagecontainercreate" );
-
         $.mobile.loader.prototype.options.text = "ESF App loading...";
         $.mobile.loader.prototype.options.textVisible = false;
         $.mobile.loader.prototype.options.theme = "a";
@@ -60,12 +58,12 @@
      * Hide/show the page loading indicator during ajax loads
      */
     $(document).bind("ajaxStart", function() {
-        $.mobile.showPageLoadingMsg();
-       // $.mobile.loading('show');
+        //$.mobile.showPageLoadingMsg();
+        $.mobile.loading('show');
     });
     $(document).bind("ajaxStop", function() {
-        $.mobile.hidePageLoadingMsg();
-        //$.mobile.loading('hide');
+        //$.mobile.hidePageLoadingMsg();
+        $.mobile.loading('hide');
     });
 
     $(document).bind("deviceready", function() {
@@ -78,11 +76,16 @@
         }
 
         // Google analytics
-        gaESF.gaStart();
-		var gaPlugin;
-    gaPlugin = window.plugins.gaPlugin;
-    alert(gaPlugin);
-    gaPlugin.init(successHandler, errorHandler, "UA-5865890-4", 10);
+       // gaESF.gaStart();
+       alert("Init GA...");
+       var gaPlugin;
+	   alert("Window.Phonegap: " + window.PhoneGap);
+	   alert("Window.cordova: " + window.cordova);
+	   alert("Window.Cordova: " + window.Cordova);
+	   alert("Ors " + window.PhoneGap || window.cordova || window.Cordova);
+       gaPlugin = window.plugins.gaPlugin;
+       alert("Done with init!!!");
+       gaPlugin.init(successHandler, errorHandler, "UA-5865890-4", 10);
 	
         // Register for Push Notifications
         pushESF.pushStart();
@@ -339,7 +342,7 @@
             if ($.mobile.activePage && ($.mobile.activePage[0].id !== pageId)) {
                 $.mobile.changePage("#" + pageId, this.pageOptions);
                 // Track page view with GA
-                gaESF.gaTrackPage(pageId);
+               // gaESF.gaTrackPage(pageId);
             }
 
         }
