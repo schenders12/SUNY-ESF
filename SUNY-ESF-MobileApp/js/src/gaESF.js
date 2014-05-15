@@ -40,9 +40,10 @@
           alert('Tracking Index.html!!!');
        },
        gaTrackPage: function(pageID) {
-             if (gaPlugin) { 
+       	alert("Tracking...");
+            // if (gaPlugin) { 
                 gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, pageID);
-             }
+             //}
              console.log('Tracking ' + pageID +  '!!!');
           alert('Tracking ' + pageID +  '!!!');
        },
