@@ -34,8 +34,8 @@
        },
        gaInit: function() {
 		   alert("GaInit...");
-             gaPlugin.init(gaSuccessInitHandler, gaErrorInitHandler, "UA-5865890-4", 10);
-             gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "Index.html");
+             gaPlugin.init(this.gaSuccessInitHandler, this.gaErrorInitHandler, "UA-5865890-4", 10);
+             gaPlugin.trackPage( this.nativePluginResultHandler, this.nativePluginErrorHandler, "Index.html");
              console.log('Tracking Index.html!!!');
           alert('Tracking Index.html!!!');
        },
