@@ -2,20 +2,21 @@
 // Google Analytics (Phone Gap Plugin)
 // Initialized during the OnDeviceReady event
 (function($) {
+    var gaPlugin;
+
     gaESF = {
        esfAlreadyHere: "false",
        esfGAPermission: "false",
-       gaPlugin: null,
        gaStart: function() {
              console.log('Starting Google Analytics...');
              alert('Starting Google Analytics...');
              if (window.plugins) {
                 alert("Registering for Phone Gap....");
-                this.gaPlugin = window.plugins.gaPlugin;
+                gaPlugin = window.plugins.gaPlugin;
                 alert("Local storage...");
                 this.esfAlreadyHere = window.localStorage.getItem('esfAlreadyHere');
                 this.esfGAPermission = window.localStorage.getItem('esfGAPermission');
-                if (!esfAlreadyHere) {
+                if (!this.esfAlreadyHere) {
                    console.log('Confirm Analytics');
              alert('Confirm...');
                    this.gaConfirm();
@@ -31,13 +32,13 @@
              }
        },
        gaInit: function() {
-             this.gaPlugin.init(gaSuccessInitHandler, gaErrorInitHandler, "UA-5865890-4", 10);
-             this.gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "Index.html");
+             gaPlugin.init(gaSuccessInitHandler, gaErrorInitHandler, "UA-5865890-4", 10);
+             gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "Index.html");
              console.log('Tracking Index.html!!!');
        },
        gaTrackPage: function(pageID) {
-             if (this.gaPlugin) { 
-                this.gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, pageID);
+             if (gaPlugin) { 
+                gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, pageID);
              }
              console.log('Tracking ' + pageID +  '!!!');
        },
@@ -75,7 +76,7 @@
        exit: function() {
            // deactivate Google analytics
            //   alert("Deactivating ga...");
-           this.gaPlugin.exit(nativePluginResultHandler, nativePluginErrorHandler);
+           gaPlugin.exit(nativePluginResultHandler, nativePluginErrorHandler);
        }
 };
 
