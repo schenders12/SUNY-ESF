@@ -76,16 +76,16 @@
         }
 
         // Google analytics
-       // gaESF.gaStart();
-       alert("Init GA...");
-       var gaPlugin;
-	   alert("Window.Phonegap: " + window.PhoneGap);
-	   alert("Window.cordova: " + window.cordova);
-	   alert("Window.Cordova: " + window.Cordova);
-	   alert("Ors " + window.PhoneGap || window.cordova || window.Cordova);
-       gaPlugin = window.plugins.gaPlugin;
-       alert("Done with init!!!");
-       gaPlugin.init(successHandler, errorHandler, "UA-5865890-4", 10);
+       gaESF.gaStart();
+       //alert("Init GA...");
+       ////var gaPlugin;
+	//   alert("Window.Phonegap: " + window.PhoneGap);
+	//   alert("Window.cordova: " + window.cordova);
+	 //  alert("Window.Cordova: " + window.Cordova);
+	 //  alert("Ors " + window.PhoneGap || window.cordova || window.Cordova);
+       //gaPlugin = window.plugins.gaPlugin;
+      // alert("Done with init!!!");
+       //gaPlugin.init(successHandler, errorHandler, "UA-5865890-4", 10);
 	
         // Register for Push Notifications
         pushESF.pushStart();
