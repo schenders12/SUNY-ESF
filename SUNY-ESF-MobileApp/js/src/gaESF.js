@@ -57,6 +57,7 @@
                 window.localStorage.setItem('esfAlreadyHere', 'true');
                 window.localStorage.setItem('esfGAPermission', 'true');
                 console.log('Successfully received permission for Google Analytics   :):) !!');
+                alert("Calling gainit...");
                 this.gaInit();
             // } else if (button === 2) {
                 // Save choices to not ask again
