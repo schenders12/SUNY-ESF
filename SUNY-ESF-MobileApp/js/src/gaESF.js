@@ -41,8 +41,7 @@
           alert('Tracking Index.html!!!');
        },
        gaTrackPage: function(pageID) {
-       	alert("Tracking...");
-                gaPlugin.trackPage( this.nativePluginResultHandler, this.nativePluginErrorHandler, pageID);
+             gaPlugin.trackPage( this.nativePluginResultHandler, this.nativePluginErrorHandler, pageID);
              console.log('Tracking ' + pageID +  '!!!');
           alert('Tracking ' + pageID +  '!!!');
        },
@@ -60,7 +59,14 @@
                 window.localStorage.setItem('esfGAPermission', 'true');
                 console.log('Successfully received permission for Google Analytics   :):) !!');
                 alert("Calling gainit...");
-                this.gaInit();
+                //this.gaInit();
+			   alert("GaInit substitue...");
+             gaPlugin.init(this.gaSuccessInitHandler, this.gaErrorInitHandler, "UA-5865890-4", 10);
+             alert("Trackpage...");
+             gaPlugin.trackPage( this.nativePluginResultHandler, this.nativePluginErrorHandler, "Index.html");
+             alert("Done with init");
+             console.log('Tracking Index.html!!!');
+          alert('Tracking Index.html!!!');
             // } else if (button === 2) {
                 // Save choices to not ask again
                // window.localStorage.setItem('esfAlreadyHere', 'true');
