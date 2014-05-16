@@ -7,20 +7,18 @@
     gaESF = {
        esfAlreadyHere: "false",
        esfGAPermission: "false",
+       esfGAId: "UA-5865890-4",
        gaStart: function() {
              console.log('Starting Google Analytics...');
              if (window.plugins) {
-             alert("Registering for Phone Gap....");
                 gaPlugin = window.plugins.gaPlugin;
-             alert("Local storage...");
                 this.esfAlreadyHere = window.localStorage.getItem('esfAlreadyHere');
                 this.esfGAPermission = window.localStorage.getItem('esfGAPermission');
                 if (!this.esfAlreadyHere) {
-                   console.log('Confirm Analytics');
-             alert('Confirm permission...');
+                   console.log('Confirming Analytics...');
                    this.gaConfirm();
-                   //this.gaPermissionCallback();
                 } else if (this.esfAlreadyHere && this.esfGAPermission == 'true') {
+                   console.log('Permission granted already (thanks!). Starting GA...');
                    this.gaInit();
                 } else {
                    console.log('We are not allowed to collect data');
@@ -28,72 +26,61 @@
              }
              else {
                  console.log('No plugins found, could not start Google Analytics.');
-                 alert("No GA");
              }
        },
        gaInit: function() {
-		   alert("GaInit...");
-             gaPlugin.init(this.gaSuccessInitHandler, this.gaErrorInitHandler, "UA-5865890-4", 10);
-             alert("Trackpage...");
+             //gaPlugin.init(this.gaSuccessInitHandler, this.gaErrorInitHandler, "UA-5865890-4", 10);
+             gaPlugin.init(this.gaSuccessInitHandler, this.gaErrorInitHandler, this.esfGAId, 10);
              gaPlugin.trackPage( this.nativePluginResultHandler, this.nativePluginErrorHandler, "Index.html");
-             alert("Done with init");
-             console.log('Tracking Index.html!!!');
-          alert('Tracking Index.html!!!');
+             console.log('GA is successfully Tracking the ESF Mobile App!!!');
        },
        gaTrackPage: function(pageID) {
              gaPlugin.trackPage( this.nativePluginResultHandler, this.nativePluginErrorHandler, pageID);
-             console.log('Tracking ' + pageID +  '!!!');
-          alert('Tracking ' + pageID +  '!!!');
+             console.log('GA is Tracking ' + pageID +  '!!!');
        },
        gaConfirm: function () {
           // Confirming this is mandatory by Google
-       alert('Navigator...');
-          navigator.notification.confirm('We would like your permission to collect some anonymous usage data to help improve the ESF Mobile app.',this.gaPermissionCallback, 'Attention', 'Allow,Deny');
+          navigator.notification.confirm('The ESF Communications office would like your permission to collect some anonymous usage data to help improve the ESF Mobile app.',this.gaPermissionCallback, 'Attention', 'Allow,Deny');
 
        },
        gaPermissionCallback: function () {
-           alert("Permission...");
-            // if (button === 1) {
+             if (button === 1) {
                 // Collect data and initialize 
                 window.localStorage.setItem('esfAlreadyHere', 'true');
                 window.localStorage.setItem('esfGAPermission', 'true');
                 console.log('Successfully received permission for Google Analytics   :):) !!');
-                alert("Calling gainit...");
-                //this.gaInit();
-			   alert("GaInit substitue...");
-             gaPlugin.init(this.gaSuccessInitHandler, this.gaErrorInitHandler, "UA-5865890-4", 10);
-             alert("Trackpage...");
-             gaPlugin.trackPage( this.nativePluginResultHandler, this.nativePluginErrorHandler, "Index.html");
-             alert("Done with init");
-             console.log('Tracking Index.html!!!');
-          alert('Tracking Index.html!!!');
-            // } else if (button === 2) {
-                // Save choices to not ask again
-               // window.localStorage.setItem('esfAlreadyHere', 'true');
-                //window.localStorage.setItem('esfGAPermission', 'false')
-                //console.log('Did not receive permission for Google Analytics   :(:( !!');
-        //}
+                console.log("Calling GA init...");
+
+                //this.gaInit(); // for some reason call to gaInit() does not work so had to cut& paste code
+                //gaPlugin.init(this.gaSuccessInitHandler, this.gaErrorInitHandler, "UA-5865890-4", 10);
+                gaPlugin.init(this.gaSuccessInitHandler, this.gaErrorInitHandler, this.esfGAId, 10);
+                gaPlugin.trackPage( this.nativePluginResultHandler, this.nativePluginErrorHandler, "Index.html");
+                console.log('GA is successfully Tracking the ESF Mobile App!!!');
+                // end cut&paste of gaInit()(
+
+             } else if (button === 2) {
+                // Save choices. do not ask again
+                window.localStorage.setItem('esfAlreadyHere', 'true');
+                window.localStorage.setItem('esfGAPermission', 'false')
+                console.log('Did not receive permission for Google Analytics and will not ask again   :(:( !!');
+             }
        },
        gaSuccessInitHandler: function () {
              console.log('Successfully initialized Google Analytics   :):) !!');
-          alert('Successfully initialized Google Analytics   :):) !!');
        },
        gaErrorInitHandler: function () {
              console.log('Failed to initialize Google Analytics :(:(:( ');
-          alert('Failed to initialize Google Analytics :(:(:( ');
        },
        nativePluginResultHandler: function () {
-             console.log('Successfully tracking Index.html   :):) !!');
-          alert('Successfully tracking Index.html   :):) !!');
+             console.log('Successfully tracking new page with GA   :):) !!');
        },
        nativePluginErrorHandler: function () {
-             console.log('Failed to track Index.html:(:(:( ');
-          alert('Failed to track Index.html:(:(:( ');
+             console.log('Failed to track GA Page view:(:(:( ');
        },
        exit: function() {
-           // deactivate Google analytics
-        alert("Deactivating ga...");
-           gaPlugin.exit(this.nativePluginResultHandler, this.nativePluginErrorHandler);
+             // deactivate Google analytics
+             console.log('Deactivating GA, good-bye until next time');
+             gaPlugin.exit(this.nativePluginResultHandler, this.nativePluginErrorHandler);
        }
 };
 
