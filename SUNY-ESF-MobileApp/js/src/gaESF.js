@@ -34,7 +34,9 @@
        gaInit: function() {
 		   alert("GaInit...");
              gaPlugin.init(this.gaSuccessInitHandler, this.gaErrorInitHandler, "UA-5865890-4", 10);
+             alert("Trackpage...");
              gaPlugin.trackPage( this.nativePluginResultHandler, this.nativePluginErrorHandler, "Index.html");
+             alert("Done with init");
              console.log('Tracking Index.html!!!');
           alert('Tracking Index.html!!!');
        },
