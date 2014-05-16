@@ -40,8 +40,8 @@
 		<gap:platform name="ios" />
 		<gap:platform name="android" />
 		<gap:platform name="winphone" />
-		<gap:plugin name="org.apache.cordova.inappbrowser"  />
-		<gap:plugin name="org.apache.cordova.device"  />
+		<gap:plugin name="org.apache.cordova.inappbrowser"  version="0.3.3" />
+		<gap:plugin name="org.apache.cordova.device" version="0.2.8" />
 		<gap:plugin name="com.phonegap.plugin.statusbar"  version="1.1.0"  />
 		<gap:plugin name="com.pushwoosh.plugins.pushwoosh" version="3.0.2" />
 		<gap:plugin name="com.adobe.plugins.gaplugin" version="2.3.1" />

@@ -68,7 +68,7 @@
        gaESF.gaStart();
 
        // Register for Push Notifications
-       pushESF.pushStart();
+       pushESF.pushStart(window.device.platform);
 
     });
 
