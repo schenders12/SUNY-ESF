@@ -19,6 +19,7 @@
              console.log('Starting Push...');
              if (window.plugins) {
                 console.log("Registering for Push....");
+									   alert("Registerfor Push...");
                 pushNotification = window.plugins.pushNotification;
                 if (pushNotification) {
                    console.log('Registering for pushes');
@@ -38,13 +39,13 @@
                    }
                    else
                    {
+					   alert("Registering for IOS Push...");
                       console.log('Registering for IOS Platform push');
 //pushNotification.register(this.pushIOSSuccessHandler,this.pushIOSErrorHandler,{"badge":"true","sound":"true","alert":"true","ecb":"this.onNotificationAPN"});
                       pushNotification.registerDevice({ alert:true, badge:true, sound:true, pw_appid : this.esfPushWooshId },
-                                    function(e) {
-                                        var pushToken = e['deviceToken'];
-                                        //console.log('IOS push token: ' + JSON.stringify(pushToken));
-                                        console.log('IOS push token: ' + pushToken);
+                                    function(status) {
+                                        var pushToken = status;
+                                        console.log('IOS push token: ' + JSON.stringify(pushToken));
                                     },
                                     function(status) {
                                         console.log(JSON.stringify(['failed to register', status]));
