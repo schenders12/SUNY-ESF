@@ -200,8 +200,11 @@ and (max-device-width : 568px) {
     -webkit-box-shadow: none!important;
     -webkit-border-radius: 7px !important;
     border-radius: 7px !important; 
-	/*background-color:white;*/
-	    background: url(../images/blackfadeBG.png);
+    /*background-color:white;*/
+    background: url(../images/blackfadeBG.png);
+}
+.ui-footer-fixed {
+    padding-bottom: 0px;
 }
 
 #esfFB .ui-icon { 
