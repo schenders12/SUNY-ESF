@@ -11,6 +11,10 @@
        esfPushWooshId:  '7D3A0-4F65E',
        esfGCMId: '61134333091',
        esfAPN: '',
+       platform: null,
+       events : {
+            "push-notification" : "pushReceived"
+        },
        pushStart: function(myPlatform) {
              console.log('Starting Push...');
              if (window.plugins) {
@@ -18,10 +22,10 @@
                 pushNotification = window.plugins.pushNotification;
                 if (pushNotification) {
                    console.log('Registering for pushes');
+                   this.platform = myPlatform;
                    if ( myPlatform == 'android' || myPlatform == 'Android' )
                    {
                       console.log('Registering for Android Platform push');
-                      var pushNotification = window.plugins.pushNotification;
                      // pushNotification.register(this.pushAndroidSuccessHandler, this.pushAndroidErrorHandler,{"senderID":"this.esfGCMId","ecb":"this.onNotificationGCM"});
                       pushNotification.registerDevice({ alert:true, badge:true, sound:true,  projectid: this.esfGCMId, appid : this.esfPushWooshId },
                                     function(status) {
@@ -37,9 +41,10 @@
                       console.log('Registering for IOS Platform push');
 //pushNotification.register(this.pushIOSSuccessHandler,this.pushIOSErrorHandler,{"badge":"true","sound":"true","alert":"true","ecb":"this.onNotificationAPN"});
                       pushNotification.registerDevice({ alert:true, badge:true, sound:true, pw_appid : this.esfPushWooshId },
-                                    function(status) {
-                                        var pushToken = status;
-                                        console.log('IOS push token: ' + JSON.stringify(pushToken));
+                                    function(e) {
+                                        var pushToken = e['deviceToken'];
+                                        //console.log('IOS push token: ' + JSON.stringify(pushToken));
+                                        console.log('IOS push token: ' + pushToken);
                                     },
                                     function(status) {
                                         console.log(JSON.stringify(['failed to register', status]));
@@ -51,6 +56,14 @@
                  console.log('No plugins found, could not register for Push.');
 				 alert("No plugins found...");
              }
+       },
+      pushReceived: function(e) {
+            alert('Push Received! Platform = '+ this.platform);
+            if ( myPlatform == 'android' || myPlatform == 'Android' )  {
+            }
+            else {
+               onNotificationAPN(e);
+            }
        },
        pushAndroidSuccessHandler: function(result) {
             alert('Android registrationCallback Success! Result = '+result);
@@ -107,8 +120,11 @@
              }
        },
        onNotificationAPN: function(e) {
+             var notification = e.notification;
+             alert(notification.aps.alert);
+             pushNotification.setApplicationIconBadgeNumber(0);
              console.log('Received IOS Push');
-             var pushNotification = window.plugins.pushNotification;
+             alert('Received IOS Push!!');
              if (e.alert) {
                 navigator.notification.alert(e.alert);
              }
@@ -122,7 +138,7 @@
        },
        exit: function() {
            //   alert("Deactivating push...");
-           pushNotification.unregister(pushSuccessHandler, pushErrorHandler);
+           pushNotification.unregisterDevice(pushSuccessHandler, pushErrorHandler);
        }
 };
 
