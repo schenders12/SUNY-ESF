@@ -54,6 +54,10 @@
         //$.mobile.hidePageLoadingMsg();
         $.mobile.loading('hide');
     });
+    $(document).bind("push-notification", function() {
+    	alert("Push received...");
+    	pushESF.pushReceived(e);
+    });
 
     $(document).bind("deviceready", function() {
          // IOS 7 and above:  Prevent status bar from overlaying app
