@@ -13,10 +13,8 @@
        esfAPN: '',
        pushStart: function(myPlatform) {
              console.log('Starting Push...');
-			 alert("Starting push...");
              if (window.plugins) {
                 console.log("Registering for Push....");
-                alert("Registering for Push....");
                 pushNotification = window.plugins.pushNotification;
                 if (pushNotification) {
                    console.log('Registering for pushes');
@@ -37,8 +35,7 @@
                    else
                    {
                       console.log('Registering for IOS Platform push');
-                      alert('Registering for IOS Platform push');
-                      //pushNotification.register(this.pushIOSSuccessHandler,this.pushIOSErrorHandler,{"badge":"true","sound":"true","alert":"true","ecb":"this.onNotificationAPN"});
+//pushNotification.register(this.pushIOSSuccessHandler,this.pushIOSErrorHandler,{"badge":"true","sound":"true","alert":"true","ecb":"this.onNotificationAPN"});
                       pushNotification.registerDevice({ alert:true, badge:true, sound:true, pw_appid : this.esfPushWooshId },
                                     function(status) {
                                         var pushToken = status;
@@ -62,10 +59,10 @@
             alert(error);
        },
        pushIOSSuccessHandler: function(result) {
-            alert('IOS registrationCallback Success! Result = '+result);
+            console.log('IOS registrationCallback Success! Result = '+result);
        },
        pushIOSErrorHandler: function(error) {
-            alert(error);
+            console.log(error);
        },
        onNotificationGCM: function(e) {
              console.log('Received Android Push');
@@ -112,8 +109,6 @@
        onNotificationAPN: function(e) {
              console.log('Received IOS Push');
              var pushNotification = window.plugins.pushNotification;
-             alert("Running in JS - onNotificationAPN - Received a notification! " + e.alert);
-
              if (e.alert) {
                 navigator.notification.alert(e.alert);
              }
