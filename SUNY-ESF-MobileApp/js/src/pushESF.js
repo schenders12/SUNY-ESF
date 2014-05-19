@@ -50,6 +50,7 @@
                                     function(status) {
                                         console.log(JSON.stringify(['failed to register', status]));
                                     });
+                       pushNotification.onDeviceReady();
                    }
                 }
              }
