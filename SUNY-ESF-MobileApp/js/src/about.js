@@ -239,6 +239,7 @@
         },
         pushSubscribe: function(e) {
                 e.preventDefault();
+                pushESF.mySubscription = 'true';
                 pushESF.pushStart();
         }
     });
