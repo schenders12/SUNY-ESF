@@ -153,7 +153,9 @@
                   window.localStorage.setItem('mySubscription', 'false');
                   this.mySubscription = false;
                   console.log('Unsubscribing from ESF Push, sayonara!!!');
+                  alert("Unsubscribing...");
                   pushNotification.unregisterDevice(this.esfPushWooshId, this.myDeviceToken);
+                  alert("Done unsubscribing")
 
              } else if (button === 2) {
                 // do nothing
