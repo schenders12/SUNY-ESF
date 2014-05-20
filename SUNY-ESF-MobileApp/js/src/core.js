@@ -55,8 +55,8 @@
         $.mobile.loading('hide');
     });
     $(document).bind("push-notification", function(e) {
-    	alert("Push received...");
-    	pushESF.pushReceived(e);
+        console.log("Push received...");
+        pushESF.pushReceived(e);
     });
 
     $(document).bind("deviceready", function() {
