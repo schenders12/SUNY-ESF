@@ -73,6 +73,7 @@
 
        // Register for Push Notifications
        pushESF.pushStart(window.device.platform);
+      // pushESF.pushStart("IOS");
 
     });
 
@@ -81,7 +82,7 @@
     });
 
 	// Browser Debug - fire Device Ready/Orientation change events
-    //window.setTimeout(function() {
+   // window.setTimeout(function() {
 		//alert("Device trigger....");
       // var e = document.createEvent('Events'); 
       // e.initEvent("unload"); 
@@ -91,7 +92,7 @@
 	   
 	   //$(window).trigger('orientationchange'); // fire the orientation change event at the start, to make sure
 	   
-    //}, 500);
+   // }, 500);
 
 
 

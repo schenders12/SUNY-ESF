@@ -40,7 +40,7 @@
        },
        gaConfirm: function () {
           // Confirming this is mandatory by Google
-          navigator.notification.confirm('The ESF Communications office would like your permission to collect some anonymous usage data to help improve the ESF Mobile app.',this.gaPermissionCallback, 'Attention', 'Allow,Deny');
+          navigator.notification.confirm('The ESF Communications office would like your permission to collect some anonymous usage data to help improve the ESF Mobile app.',this.gaPermissionCallback, 'SUNY-ESF', 'Allow,Deny');
 
        },
        gaPermissionCallback: function (button) {

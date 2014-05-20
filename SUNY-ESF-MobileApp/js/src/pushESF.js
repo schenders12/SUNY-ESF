@@ -11,7 +11,6 @@
        esfPushWooshId:  '7D3A0-4F65E',
        esfGCMId: '61134333091',
        esfAPN: '',
-       mySubscription: "false",
        myPlatform: null,
        myDeviceToken: null,
        events : {
@@ -19,11 +18,11 @@
        },
        pushStart: function(myPlatform) {
              console.log('Starting Push...');
+             // this.mySubscription = window.localStorage.getItem('mySubscription');
+             window.localStorage.setItem('mySubscription', 'true');
              if (window.plugins) {
                 console.log("Registering for Push....");
-
-                this.mySubscription = window.localStorage.getItem('mySubscription');
-                if (this.mySubscription) {
+                //if (this.mySubscription) {
                    pushNotification = window.plugins.pushNotification;
                    console.log('Registering for Android pushes');
                    this.myPlatform = myPlatform;
@@ -56,7 +55,7 @@
                                     });
                    }
                    pushNotification.onDeviceReady();
-                }
+               // }
              }
              else {
                  console.log('No plugins found, could not register for Push.');
@@ -144,14 +143,24 @@
              }
        },
        confirmPushStop: function() {
-             if (this.mySubscription) {
                  navigator.notification.confirm('You will no longer receive Push Notifications from the ESF Mobile app.',this.pushStop, 'Unsubscribe', 'Confirm,Cancel');
-             }
+       },
+       confirmPushStart: function() {
+                 navigator.notification.confirm('Please confirm that you wish to receive SUNY-ESF Push Notifications.',function () {
+                             if (button === 1) {
+                                console.log('Subscribing to ESF Push notifications');
+                                 alert("Subscribing...");
+                                 this.pushStart();
+                                 alert("Done Subscribing")
+
+                               } else if (button === 2) {
+                                    // do nothing
+                               }
+                     }, 'Subscribe', 'Confirm,Cancel');
        },
        pushStop: function(button) {
              if (button === 1) {
                   window.localStorage.setItem('mySubscription', 'false');
-                  this.mySubscription = false;
                   console.log('Unsubscribing from ESF Push, sayonara!!!');
                   alert("Unsubscribing...");
                   pushNotification.unregisterDevice(this.esfPushWooshId, this.myDeviceToken);
@@ -161,6 +170,8 @@
                 // do nothing
              }
        },
+	   
+	   
 };
 
 })(jQuery);

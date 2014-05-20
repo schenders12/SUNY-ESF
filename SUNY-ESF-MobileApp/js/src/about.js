@@ -220,15 +220,26 @@
             var html =
                 "<div data-role=\"page\" id=\"esfPush\">" +
                 " <div id = \"commonHeader\"></div>" + 
-                "  <div data-role=\"content\">" +
-                "    <p>To subscribe to ESF Push Notifications, please click " + 
-                "    <a href=\"\" id=\"pushSubscribe\">here</a>.</p>" +
-                "    <p>To unsubscribe from ESF Push Notifications, please click " + 
-                "    <a href=\"\" id=\"pushUnsubscribe\">here</a>.</p>" +
+                "  <div id = \"pushInfo\" data-role=\"content\">" +
                 "  </div>" +
                 "  <div id = \"commonFooter\"></div>" +
                 "</div>";
             this.setElement(html);
+
+            var pushHTML;
+            var pushSubscribe = window.localStorage.getItem('mySubscription');
+
+            if (pushSubscribe == 'true') {
+                pushHTML=  "<p>You are subscribed to ESF Push Notifications.  </p>" + 
+                           "<p>To unsubscribe, please click <a href=\"\" id=\"pushUnsubscribe\">here</a>.</p>";
+            }
+            else {
+                pushHTML=  "<p>You are not subscribed to ESF Push Notifications.  </p>" + 
+                         "<p>To subscribe, please click <a href=\"\" id=\"pushSubscribe\">here</a>.</p>";
+            }
+
+            var $content = this.$("div[data-role=\"content\"]");
+            $content.html(pushHTML);
 
             this.renderHeader('ESF Push Notifications', '#about');
             this.renderTheme();
@@ -239,9 +250,7 @@
         },
         pushSubscribe: function(e) {
                 e.preventDefault();
-                pushESF.mySubscription = 'true';
-                window.localStorage.setItem('mySubscription', 'true');
-                pushESF.pushStart();
+                pushESF.confirmPushStart();
         }
     });
 
