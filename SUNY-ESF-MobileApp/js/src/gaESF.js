@@ -43,7 +43,7 @@
           navigator.notification.confirm('The ESF Communications office would like your permission to collect some anonymous usage data to help improve the ESF Mobile app.',this.gaPermissionCallback, 'Attention', 'Allow,Deny');
 
        },
-       gaPermissionCallback: function () {
+       gaPermissionCallback: function (button) {
              if (button === 1) {
                 // Collect data and initialize 
                 window.localStorage.setItem('esfAlreadyHere', 'true');
