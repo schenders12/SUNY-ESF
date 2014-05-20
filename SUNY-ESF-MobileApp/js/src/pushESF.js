@@ -148,7 +148,7 @@
                  navigator.notification.confirm('You will no longer receive Push Notifications from the ESF Mobile app.',this.pushStop, 'Unsubscribe', 'Confirm,Cancel');
              }
        },
-       pushStop: function() {
+       pushStop: function(button) {
              if (button === 1) {
                   window.localStorage.setItem('mySubscription', 'false');
                   this.mySubscription = false;
