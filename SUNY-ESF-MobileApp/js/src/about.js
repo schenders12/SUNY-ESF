@@ -226,6 +226,14 @@
                 "</div>";
             this.setElement(html);
 
+            this.renderHeader('ESF Push Notifications', '#about');
+            this.renderTheme();
+            this.$el.bind("pagebeforeshow", _.bind(function() {
+                this.render();
+            }, this));
+
+        },
+        render: function() {
             var pushHTML;
             var pushSubscribe = window.localStorage.getItem('mySubscription');
 
@@ -241,8 +249,6 @@
             var $content = this.$("div[data-role=\"content\"]");
             $content.html(pushHTML);
 
-            this.renderHeader('ESF Push Notifications', '#about');
-            this.renderTheme();
         },
         pushUnsubscribe: function(e) {
                 e.preventDefault();

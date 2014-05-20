@@ -72,8 +72,11 @@
        gaESF.gaStart();
 
        // Register for Push Notifications
-       pushESF.pushStart(window.device.platform);
-      // pushESF.pushStart("IOS");
+	   var pushSubscribe = window.localStorage.getItem('mySubscription');
+       if (pushSubscribe != 'false') {
+           pushESF.pushStart(window.device.platform);
+           // pushESF.pushStart("IOS");
+       }
 
     });
 
