@@ -240,6 +240,7 @@
         pushSubscribe: function(e) {
                 e.preventDefault();
                 pushESF.mySubscription = 'true';
+                window.localStorage.setItem('mySubscription', 'true');
                 pushESF.pushStart();
         }
     });
