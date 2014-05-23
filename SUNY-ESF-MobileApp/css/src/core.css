@@ -242,16 +242,6 @@ and (max-device-width : 568px) {
 
 .portrait body div { width: 10%; }
 
-#menu-right {
-    /*float: right;
-    margin-right:0.5em; 
-	/*padding-bottom:200px*/
-}
-#menu-right ul {
-    margin-right: 0.5em;
-    right: 0em;
-	position:  relative;
-}
 .rightMenu {
     position: absolute;
     top:0%;   
