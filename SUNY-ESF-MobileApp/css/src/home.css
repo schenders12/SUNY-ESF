@@ -10,6 +10,7 @@
 	text-align:center;
 }
 
+
 /* Android */
 
 /* All Smartphones in portrait and landscape ----------- */
@@ -421,6 +422,9 @@ and (max-width: 960px){
         background-position: center;
         background-size:cover  !important;
 	 }
+     #homebuttonGrid img {
+        padding: 5px 20px;
+     }
 }
 
 /* iPad Portait and Landscape */
@@ -439,17 +443,20 @@ and (max-device-width : 1024px)  {
         width:300px;
         height:60px;
         left:50%;
-         margin-bottom: 72px;
+        margin-bottom: 72px;
         margin-left: -150px;
      }
      #home {
         position:relative;
-		background-image: url(../images/blackfadeBG.png);
-		background-repeat: repeat;
-		background: fixed;
-		background-position: bottom;
-		background-size:cover  !important;
-	 }
+        background-image: url(../images/blackfadeBG.png);
+        background-repeat: repeat;
+        background: fixed;
+        background-position: bottom;
+        background-size:cover  !important;
+     }
+     #homebuttonGrid img {
+        padding: 5px 20px;
+     }
 }
 
 /* iPhone 5 Portrait and Landscape */

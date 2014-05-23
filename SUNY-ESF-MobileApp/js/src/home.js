@@ -11,6 +11,8 @@
                 var deferred = new $.Deferred();
                 $.getJSON("mobile/app_def.json").done(_.bind(function(app_def) {
                     this.app_def = app_def;
+					//alert("setItem...");
+                    this.appDef.setItem(app_def);
                     deferred.resolve();
                 }, this));
                 return deferred.promise();
@@ -41,6 +43,7 @@
                 "<div id=\"home\" data-role=\"page\">" + header +
                 //"  <div id=\"homebuttonGrid\" data-role=\"content\"></div>" +
                 "  <div id=\"homebuttonGrid\" class=\"ui-content\" role=\"main\"></div>" +
+                "  <div id=\"newContent\" class=\"ui-content\" role=\"main\"></div>" +
                 //"  <img src = \"images/homelogo.png\" style=\"position:absolute;bottom:0; width:300px; height:60px; left:50%; margin-bottom: 72px;margin-left: -150px\">" + 
                // "  <img src = \"images/homelogo.png\" style=\"bottom: 45; width: 300px; position: absolute\">" + 
                 //"  <img src = \"images/homelogo.png\" class=\"homeImg\">" + 
@@ -64,8 +67,6 @@
             var html ="";
             _.each(this.router.app_def, _.bind(function(subapp_def) {
                 if (_.contains(theme_def.subapps, subapp_def.id)) {
-                    //html += "<a href=\"" + subapp_def.entry_url + "\" data-transition=\"slideup\" style=\"text-decoration: none\"> <img src=\"" + subapp_def.icon_low + "\" /></a>";
-                    //html += "<a href=\"" + subapp_def.entry_url + "\" data-transition=\"slideup\" style=\"text-decoration: none\"> <img src=\"" + subapp_def.icon_low + "\" /></a>";
                     html += "<a href=\"" + subapp_def.entry_url + "\" id=" + subapp_def.entry_url + " data-transition=\"slideup\" style=\"text-decoration: none\" data-buttonid=" + subapp_def.id + "> <img src=\"" + subapp_def.icon_low + "\" /></a>";
                 }
             }, this));

@@ -20,6 +20,17 @@
     } else {
         var Storage = window.localStorage;
     }
+     var AppDef = {
+                _app_def: {},
+                setItem: function(app_def) {
+					//alert("Set item...");
+                    this._app_def = app_def;
+                },
+                getItem: function(id) {
+										//alert("Get item...");
+                    return this._app_def.hasOwnProperty(id) ? this._app_def[id] : undefined;
+                }
+     };
 
     /*
      * jQuery Mobile global settings
@@ -217,6 +228,13 @@
                 this.inits.push(init);
             },
             start: function() {
+
+				// Read in app_def data
+              $.getJSON("mobile/app_def.json").done(_.bind(function(app_def) {
+                   _.each(app_def, _.bind(function(subapp_def) {
+                   }, this));
+              var appdefModel = new AppDefModelCollection(app_def);
+                }, this));
                 /*
                  * Before we call any routes we need to make sure we have a valid theme set.
                  * If we're in native mode we expect a cookie indicating the theme to use overriding
@@ -288,6 +306,7 @@
             changeHash: false,
             replace: true
         },
+        appDef:  AppDef,
         // This method is call prior to calls to our route handlers.
         // Routers should implement this, if necessary, to load any data
         // required by our pages.
@@ -297,7 +316,7 @@
         // the class to instantiate and optional arguments to pass to the page's
         // initializer.
         loadPage: function(key, clazz, args) {
-            if (!this[key]) {			
+            if (!this[key]) {
                 var initializeWrapper = function(fn) {	
                     var args = Array.prototype.slice.call(arguments, 1);
                     // Pass a reference to our router
@@ -346,7 +365,11 @@
            "click #esfTW" : "linkClick",
            "click #esfLI" : "linkClick",
            "click #esfYT" : "linkClick",
-           "click #esfWP" : "linkClick"
+           "click #esfWP" : "linkClick",
+           "click #optionsMenu" : "menuHandler",
+           "collapse #optionsMenu" : "collapseMenu",
+           "expand #optionsMenu" : "expandMenu",
+           "change select" : "selectChange",
        },
 
         // Pass our global event aggregator
@@ -395,15 +418,45 @@
             var $header = this.$("div[id=\"commonHeader\"]");
 
             if (this.nativeMode) {
-                headerHTML = "  <a class=\"back\" data-icon=\"back\" data-direction=\"reverse\" data-role=\"button\" href=\"" + route + "\" data-position=\"fixed\">Back</a>"
+                headerHTML = "  <a class=\"back\" data-role=\"button\" data-icon=\"back\" data-direction=\"reverse\" href=\"" + route + "\" data-position=\"fixed\">Back</a>"
            } else {
                 headerHTML = "<div data-role=\"header\" data-position=\"fixed\" data-tap-toggle=\"false\">" +
-                        "   <a id=\"back\" class=\"back\" data-role=\"button\" data-inline=\"true\" data-transition=\"slide\" data-direction=\"reverse\" data-shadow=\"false\" href=\"" + route + "\">Back</a>" +	
+                        "   <a id=\"back\" data-role=\"button\" data-inline=\"true\" data-transition=\"slide\" data-direction=\"reverse\" data-shadow=\"false\" href=\"" + route + "\">Back</a>" +	
+                        //"  <a id=\"back\" href=\"#\" data-icon=\"bars\" data-iconpos=\"notext\" data-role=\"button\">Home</a>" +
                         "  <h1><div id = \"esfPageTitle\">" + title + "</div></h1>" + 
-                        "   <a id=\"homeButton\" href=\"#\" data-role=\"button\" data-inline=\"true\" data-direction=\"reverse\" data-shadow=\"false\">Home</a>" + 
+                       // "   <a id=\"homeButton\" href=\"#\" data-icon=\"bars\" data-iconpos=\"notext\" data-role=\"button\" data-inline=\"true\" data-direction=\"reverse\" data-shadow=\"false\">Home</a>" + 
+                       // Dropdown Menu
+                        "   <div data-role=\"collapsible\" id=\"optionsMenu\" class=\"rightMenu\" data-collapsed-icon=\"bars\" data-expanded-icon=\"bars\" data-iconpos=\"right\">" +
+						
+                        "   <h3 style=\"margin-left:-20%;\">      </h3>" +
+                        "   <ul data-role=\"listview\">" +
+                        "      <li data-icon=\"false\"><a href=\"#\">Home</a></li>" +
+                        "      <li data-icon=\"false\"><a href=\"#about\">About</a></li>" +
+                        "      <li data-icon=\"false\"><a href=\"#news\">News</a></li>" +
+                        "      <li data-icon=\"false\"><a href=\"#events\">Events</a></li>" +
+                        "      <li data-icon=\"false\"><a href=\"#directory\">Directory</a></li>" +
+                        "      <li data-icon=\"false\"><a href=\"#video\">Video</a></li>" +
+                        "      <li data-icon=\"false\"><a href=\"#maps\">Maps</a></li>" +
+                        "      <li data-icon=\"false\"><a href=\"#social\">Social</a></li>" +
+                        "      <li data-icon=\"false\"><a href=\"#dining\">Dining</a></li>" +
+                        "      <li data-icon=\"false\"><a href=\"#athletics\">Athletics</a></li>" +
+                        "      <li data-icon=\"false\"><a href=\"#giving\">Giving</a></li>" +
+                        "      <li data-icon=\"false\"><a href=\"#admissions\">Admissions</a></li>" +
+                        "      <li data-icon=\"false\"><a href=\"http://www.esf.edu\">Main Site</a></li>" +
+                        "   </ul>" +
+                        "   </div>" +
                         "</div>";
             }
             $header.html(headerHTML);
+            var theme_def = ThemesUtil.getThemeDef();
+			//alert("Each...");
+            _.each(this.router.appDef, _.bind(function(subapp_def) {
+				//alert("Each......!!!" + subapp_def.id);
+                if (_.contains(theme_def.subapps, subapp_def.id)) {
+                    html += "<a href=\"" + subapp_def.entry_url + "\" id=" + subapp_def.entry_url + " data-transition=\"slideup\" style=\"text-decoration: none\" data-buttonid=" + subapp_def.id + "> <img src=\"" + subapp_def.icon_low + "\" /></a>";
+					//alert(subapp_def.entry_url);
+                }
+            }, this));
         },
         // Call this function to use a common footer (Social icon NavBar)
         // Override for a different footer
@@ -451,9 +504,13 @@
         },
         // Common function to intercept link clicks and prevent default change of page
         linkClick: function(e) {
+			
             var id = arguments[0].currentTarget.id;
             if ((id == 'back') || (id=='homeButton')) {
                // Ignore this click
+            }
+            else if (id == 'optionsMenu') {
+               this.menuHandler(e);
             }
             else {
                e.preventDefault();
@@ -478,6 +535,30 @@
             } else{
                alert("Unknown error, please try your request later");
             }
+        },
+        menuHandler: function(e) {
+			alert("Menu handler....");
+           this.hideOpenMenus();
+              var name = e.currentTarget.value;
+              var newName = e.delegateTarget.value;
+          // this.find('li > ul').show();
+           $("ul:jqmData(role='menu')").find('li > ul').show();
+           e.stopPropagation();
+        },
+        hideOpenMenus:  function() {
+           $("ul:jqmData(role='menu')").find('li > ul').hide();
+        },
+        expandMenu:  function(e) {
+			alert("Expand...");
+          // $("ul:jqmData(role='menu')").find('li > ul').hide();
+        },
+        collapseMenu:  function(e) {
+			alert("Collapse...");
+          // $("ul:jqmData(role='menu')").find('li > ul').hide();
+        },
+        selectChange:  function(e) {
+			alert("Select...");
+          // $("ul:jqmData(role='menu')").find('li > ul').hide();
         },
     });
 

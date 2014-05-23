@@ -59,7 +59,7 @@
 				"      <li><a href=\"#about/history\"><h4>ESF History</h4></a></li>" +
 				"      <li><a href=\"#about/facts\"><h4>ESF Facts</h4></a></li>" + 
 				"      <li><a href=\"#about/rankings\"><h4>Rankings and Ratings</h4></a></li>" +
-				"      <li><a href=\"#about/push\"><h4>ESF Push Notifications</h4></a></li>" + 
+				"      <li><a href=\"#about/push\"><h4>Push Notifications</h4></a></li>" + 
 				"      <li><a href=\"#about/about\"><h4>About ESF Mobile</h4></a></li>" + 
 				"    </ul>" + 
 				"  </div>" +  
