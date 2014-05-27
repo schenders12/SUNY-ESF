@@ -20,17 +20,6 @@
     } else {
         var Storage = window.localStorage;
     }
-     var AppDef = {
-                _app_def: {},
-                setItem: function(app_def) {
-					//alert("Set item...");
-                    this._app_def = app_def;
-                },
-                getItem: function(id) {
-										//alert("Get item...");
-                    return this._app_def.hasOwnProperty(id) ? this._app_def[id] : undefined;
-                }
-     };
 
     /*
      * jQuery Mobile global settings
@@ -107,8 +96,6 @@
 	   //$(window).trigger('orientationchange'); // fire the orientation change event at the start, to make sure
 	   
    // }, 500);
-
-
 
     /*
      * Shared event aggregator passed to all routers/views extending our base classes.
@@ -228,13 +215,6 @@
                 this.inits.push(init);
             },
             start: function() {
-
-				// Read in app_def data
-              $.getJSON("mobile/app_def.json").done(_.bind(function(app_def) {
-                   _.each(app_def, _.bind(function(subapp_def) {
-                   }, this));
-              var appdefModel = new AppDefModelCollection(app_def);
-                }, this));
                 /*
                  * Before we call any routes we need to make sure we have a valid theme set.
                  * If we're in native mode we expect a cookie indicating the theme to use overriding
@@ -267,6 +247,7 @@
                     $.when(this.loadData(Backbone.history.getFragment())).then(_.bind(function() {
                         // Call our route handler
                         fn.apply(this, args);
+
                     }, this));
                 };
                 // Router initialization	
@@ -306,7 +287,6 @@
             changeHash: false,
             replace: true
         },
-        appDef:  AppDef,
         // This method is call prior to calls to our route handlers.
         // Routers should implement this, if necessary, to load any data
         // required by our pages.
@@ -346,32 +326,27 @@
             Backbone.Router.prototype.navigate.call(this, path, options);
             var pageId = page.el.id;
 
+            // Debug
+            //alert("Prev page:  " + $.mobile.activePage[0].id + "  New page:  " + pageId);
+            // end debug 
+
             if ($.mobile.activePage && ($.mobile.activePage[0].id !== pageId)) {
                 $.mobile.changePage("#" + pageId, this.pageOptions);
                 // Track page view with GA
                 gaESF.gaTrackPage(pageId);
+
             }
+
 
         }
     });
-
     /*
      * Subapp pages can/should inherit from this.
      */
     BaseView = Backbone.View.extend({
       events : {
-           "click #mainSite" : "linkClick",
-           "click #esfFB" : "linkClick",
-           "click #esfTW" : "linkClick",
-           "click #esfLI" : "linkClick",
-           "click #esfYT" : "linkClick",
-           "click #esfWP" : "linkClick",
-           "click #optionsMenu" : "menuHandler",
-           "collapse #optionsMenu" : "collapseMenu",
-           "expand #optionsMenu" : "expandMenu",
-           "change select" : "selectChange",
+           "click a": "linkClick"
        },
-
         // Pass our global event aggregator
         eventAggr: EventAggr,
         // Utility method typically called in page initializer to decorate our page with
@@ -420,16 +395,16 @@
             if (this.nativeMode) {
                 headerHTML = "  <a class=\"back\" data-role=\"button\" data-icon=\"back\" data-direction=\"reverse\" href=\"" + route + "\" data-position=\"fixed\">Back</a>"
            } else {
-                headerHTML = "<div data-role=\"header\" data-position=\"fixed\" data-tap-toggle=\"false\">" +
-                        "   <a id=\"back\" data-role=\"button\" data-inline=\"true\" data-transition=\"slide\" data-direction=\"reverse\" data-shadow=\"false\" href=\"" + route + "\">Back</a>" +	
+                headerHTML = "<div data-role=\"header\" data-position=\"fixed\" data-tap-toggle=\"false\" data-add-back-btn=\"true\" >" +
+                       // "   <a id=\"back\" data-role=\"button\" data-inline=\"true\" data-transition=\"slide\" data-direction=\"reverse\" data-shadow=\"false\" href=\"" + route + "\">Back</a>" +	
+                        "   <a id=\"back\" data-role=\"button\" data-rel=\"back\" data-inline=\"true\" data-transition=\"slide\" data-direction=\"reverse\" data-shadow=\"false\" href=#>Back</a>" +	
                         //"  <a id=\"back\" href=\"#\" data-icon=\"bars\" data-iconpos=\"notext\" data-role=\"button\">Home</a>" +
                         "  <h1><div id = \"esfPageTitle\">" + title + "</div></h1>" + 
                        // "   <a id=\"homeButton\" href=\"#\" data-icon=\"bars\" data-iconpos=\"notext\" data-role=\"button\" data-inline=\"true\" data-direction=\"reverse\" data-shadow=\"false\">Home</a>" + 
-                       // Dropdown Menu
+                        // Dropdown Menu
                         "   <div data-role=\"collapsible\" id=\"optionsMenu\" class=\"rightMenu\" data-collapsed-icon=\"bars\" data-expanded-icon=\"bars\" data-iconpos=\"right\">" +
-						
                         "   <h3 style=\"margin-left:-20%;\">      </h3>" +
-                        "   <ul data-role=\"listview\">" +
+                        "   <ul data-role=\"listview\" class=\"item-list\">" + 
                         "      <li data-icon=\"false\"><a href=\"#\">Home</a></li>" +
                         "      <li data-icon=\"false\"><a href=\"#about\">About</a></li>" +
                         "      <li data-icon=\"false\"><a href=\"#news\">News</a></li>" +
@@ -448,15 +423,6 @@
                         "</div>";
             }
             $header.html(headerHTML);
-            var theme_def = ThemesUtil.getThemeDef();
-			//alert("Each...");
-            _.each(this.router.appDef, _.bind(function(subapp_def) {
-				//alert("Each......!!!" + subapp_def.id);
-                if (_.contains(theme_def.subapps, subapp_def.id)) {
-                    html += "<a href=\"" + subapp_def.entry_url + "\" id=" + subapp_def.entry_url + " data-transition=\"slideup\" style=\"text-decoration: none\" data-buttonid=" + subapp_def.id + "> <img src=\"" + subapp_def.icon_low + "\" /></a>";
-					//alert(subapp_def.entry_url);
-                }
-            }, this));
         },
         // Call this function to use a common footer (Social icon NavBar)
         // Override for a different footer
@@ -504,13 +470,23 @@
         },
         // Common function to intercept link clicks and prevent default change of page
         linkClick: function(e) {
-			
+							 //  alert("Clicked link...");
             var id = arguments[0].currentTarget.id;
-            if ((id == 'back') || (id=='homeButton')) {
-               // Ignore this click
+            var href = arguments[0].currentTarget.href;
+            // Flag for external pages
+            var isInt = href.indexOf("http");
+
+            if (id == 'back') {
+               // Route to previous page
+               window.history.back();
+               return false;
             }
-            else if (id == 'optionsMenu') {
-               this.menuHandler(e);
+
+            if (id=='homeButton') {
+               // Ignore this click for Back/Home buttons
+            }
+            else if (isInt == -1){
+               // Ignore this click for internal app pages (i.e. menu click)
             }
             else {
                e.preventDefault();
@@ -535,30 +511,6 @@
             } else{
                alert("Unknown error, please try your request later");
             }
-        },
-        menuHandler: function(e) {
-			alert("Menu handler....");
-           this.hideOpenMenus();
-              var name = e.currentTarget.value;
-              var newName = e.delegateTarget.value;
-          // this.find('li > ul').show();
-           $("ul:jqmData(role='menu')").find('li > ul').show();
-           e.stopPropagation();
-        },
-        hideOpenMenus:  function() {
-           $("ul:jqmData(role='menu')").find('li > ul').hide();
-        },
-        expandMenu:  function(e) {
-			alert("Expand...");
-          // $("ul:jqmData(role='menu')").find('li > ul').hide();
-        },
-        collapseMenu:  function(e) {
-			alert("Collapse...");
-          // $("ul:jqmData(role='menu')").find('li > ul').hide();
-        },
-        selectChange:  function(e) {
-			alert("Select...");
-          // $("ul:jqmData(role='menu')").find('li > ul').hide();
         },
     });
 

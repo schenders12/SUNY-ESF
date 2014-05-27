@@ -5,10 +5,6 @@
         routes: {
             "video": "showVideoGridList",
         },
-        initialize: function() {
-        },
-        loadData: function() {
-        },
         showVideoGridList: function() {
             this.loadPage("videoGridListPage", VideoGridListPage, {collection: this.videoGridList});
             this.navigate("video", this.videoGridListPage);

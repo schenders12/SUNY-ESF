@@ -11,8 +11,6 @@
                 var deferred = new $.Deferred();
                 $.getJSON("mobile/app_def.json").done(_.bind(function(app_def) {
                     this.app_def = app_def;
-					//alert("setItem...");
-                    this.appDef.setItem(app_def);
                     deferred.resolve();
                 }, this));
                 return deferred.promise();
@@ -68,8 +66,10 @@
             _.each(this.router.app_def, _.bind(function(subapp_def) {
                 if (_.contains(theme_def.subapps, subapp_def.id)) {
                     html += "<a href=\"" + subapp_def.entry_url + "\" id=" + subapp_def.entry_url + " data-transition=\"slideup\" style=\"text-decoration: none\" data-buttonid=" + subapp_def.id + "> <img src=\"" + subapp_def.icon_low + "\" /></a>";
+
                 }
             }, this));
+
             // Add Main Site button
             html += "<a href=\"http://www.esf.edu\" id=mainSite data-target=\"_blank\" data-transition=\"slideup\" style=\"text-decoration: none\"> <img src=\"images/main-site_icon.png\" /></a></div>";
 

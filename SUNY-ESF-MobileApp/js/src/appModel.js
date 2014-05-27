@@ -11,22 +11,19 @@ var AppDefModel = Backbone.Model.extend({
           entry_url:  '',
        },
        initialize:  function () {
-		   alert("Initialize..." + this.id + " " + this.entry_url + "" + this.name);
-		   
+           //  alert(JSON.stringify(this));
        // TBD
        },
        fetch:  function () {
        // TBD
-		   alert("Fetch...");
+		  // alert("Fetch...");
        },
 });
 
 var AppDefModelCollection = Backbone.Collection.extend({
          model:  AppDefModel,
          url: 'mobile/app_def.json',
-        initialize:   function(){
-          // this.add(new AppDefModel());
-		  // AppDefModel.fetch();
+         initialize:   function(app_def){
         },
     });
 
