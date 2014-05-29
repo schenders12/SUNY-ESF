@@ -91,7 +91,7 @@
 
             this.eventsUpcomingPage.render();
             // Create the route path and navigate
-            var path = "events/list/" + calendar;
+            var path = "events/upcoming/" + calendar;
             this.navigate(path, this.eventsUpcomingPage);
             $.mobile.silentScroll(0);
         },
@@ -130,7 +130,7 @@
 
             // Update the event ID
             this.eventsDetailPage.id = eventID;
-            this.navigate("events/detail", this.eventsDetailPage);
+            this.navigate("events/detail/" + eventID, this.eventsDetailPage);
             $.mobile.silentScroll(0);
         }
     });
@@ -139,8 +139,10 @@
        initialize: function (options) {
             this.calendar = options.calendar;
             var todayRoute = '#events/list/' + this.calendar;
+			var id = "esfEventList" + this.calendar;
             var html =
-                "<div data-role=\"page\" id=\"esfEventList\">" +
+               // "<div data-role=\"page\" id=\"esfEventList\">" +
+                "<div data-role=\"page\" id=\"" + id + "\">" +
                 "   <div id = \"commonHeader\"></div>" +
                 "   <div data-role=\"content\"></div>" + 
                 "   <div id = \"commonFooter\"></div>" +
@@ -224,7 +226,7 @@
 
     var EventsDetailPage = BaseView.extend({
         events : {
-            "click a" : "linkClick"
+            "click a" : "linkClick",
         },
         initialize: function (options) {
             var html =
@@ -241,7 +243,6 @@
             var backpath = "#events/upcoming/" + this.calendar;
             this.renderHeader('ESF Event Detail', backpath);
             this.renderTheme();
-
 
             this.$el.bind("pagebeforeshow", _.bind(function () {
                 this.render();

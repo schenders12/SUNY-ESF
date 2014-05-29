@@ -14,7 +14,7 @@
         showMap: function(mapID) {
             this.loadPage("mapsPage", MapsPage, {id : mapID});
             this.mapsPage.id = mapID;
-            this.navigate("maps/show", this.mapsPage);
+            this.navigate("maps/show/" + this.mapsPage.id, this.mapsPage);
             $.mobile.silentScroll(0);
         },
         showMapChoice: function() {
@@ -26,7 +26,7 @@
 
     var MapsPage = BaseView.extend({
        events : {
-            "pageinit":  "initMap",
+            "pagecreate":  "initMap",
             "pagebeforeshow": "showMap",
             "pagebeforehide": "hideMap",
             "click a" : "linkClick"

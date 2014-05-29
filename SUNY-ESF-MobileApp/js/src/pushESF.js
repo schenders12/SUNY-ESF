@@ -63,7 +63,6 @@
              }
        },
        pushReceived: function(e) {
-            alert('Push Received! Platform = '+ this.platform);
             if ( myPlatform == 'android' || myPlatform == 'Android' )  {
             }
             else {
@@ -129,7 +128,6 @@
             // alert(notification.aps.alert);
              pushNotification.setApplicationIconBadgeNumber(0);
              console.log('Received IOS Push');
-             alert('Successfully received IOS Push!!');
              navigator.notification.alert(JSON.stringify(e.notification));
              if (e.alert) {
                 navigator.notification.alert(e.alert);
@@ -149,10 +147,7 @@
                  navigator.notification.confirm('Please confirm that you wish to receive SUNY-ESF Push Notifications.',function () {
                              if (button === 1) {
                                 console.log('Subscribing to ESF Push notifications');
-                                 alert("Subscribing...");
                                  this.pushStart();
-                                 alert("Done Subscribing")
-
                                } else if (button === 2) {
                                     // do nothing
                                }
@@ -162,9 +157,7 @@
              if (button === 1) {
                   window.localStorage.setItem('mySubscription', 'false');
                   console.log('Unsubscribing from ESF Push, sayonara!!!');
-                  alert("Unsubscribing...");
                   pushNotification.unregisterDevice(this.esfPushWooshId, this.myDeviceToken);
-                  alert("Done unsubscribing")
 
              } else if (button === 2) {
                 // do nothing

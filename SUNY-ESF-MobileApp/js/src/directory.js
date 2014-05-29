@@ -197,7 +197,8 @@
             this.renderHeader('Find People', '#');
             this.renderTheme();
 
-            this.$el.bind("pageshow", resizeHandler);
+           // this.$el.bind("pageshow", resizeHandler);
+            this.$el.bind("pagecontainershow", resizeHandler);
 
         },
         submit: function(e) {
@@ -284,16 +285,6 @@
 
     var ResultsPage = BaseResults.extend({
         initialize: function(options) {
-            var header;
-            if (this.router.nativeMode) {
-                header = "<a class=\"back\" data-icon=\"back\" data-role=\"button\" href=\"#directory\">Refine</a>";
-            } else {
-                header =
-                    "<div data-role=\"header\">" +
-                    "  <a class=\"back\" data-icon=\"back\" data-iconpos=\"notext\" data-role=\"button\" href=\"#directory\">Refine</a>" +
-                    "  <h1>Search Results</h1>" +
-                    "</div>";
-            }
             var html =
                 "<div data-role=\"page\" data-url=\"results\" id=\"results\">" +
                 " <div id = \"commonHeader\"></div>" + 

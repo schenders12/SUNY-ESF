@@ -14,7 +14,7 @@
             this.loadPage("newsDetailPage", NewsDetailPage, {id: newsID});
             // Update the news article ID
             this.newsDetailPage.id = newsID;
-            this.navigate("news/detail", this.newsDetailPage);
+            this.navigate("news/detail/" + newsID, this.newsDetailPage);
             $.mobile.silentScroll(0);
         },
     });

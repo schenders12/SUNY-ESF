@@ -29,7 +29,7 @@
         $.mobile.hashListeningEnabled = false;
         $.mobile.linkBindingEnabled = false;
         $.mobile.pushStateEnabled = false;
-        $.mobile.autoInitializePage = false;
+        //$.mobile.autoInitializePage = false;
         $.mobile.defaultPageTransition = "none";
 		$.mobile.allowCrossDomainPages = true;
 		$.support.cors = true;
@@ -37,11 +37,11 @@
 		
 		// Hack to fix possible bug in jquery mobile 1.3.2
 		// Mobile loader widget is not created properly
-        $.mobile.loaderWidget = $.mobile.loaderWidget || $( $.mobile.loader.prototype.defaultHtml ).loader();
-        $.mobile.loader.prototype.options.text = "ESF App loading...";
-        $.mobile.loader.prototype.options.textVisible = false;
-        $.mobile.loader.prototype.options.theme = "a";
-        $.mobile.loader.prototype.options.html = "";
+       // $.mobile.loaderWidget = $.mobile.loaderWidget || $( $.mobile.loader.prototype.defaultHtml ).loader();
+       // $.mobile.loader.prototype.options.text = "ESF App loading...";
+       // $.mobile.loader.prototype.options.textVisible = false;
+       // $.mobile.loader.prototype.options.theme = "a";
+       // $.mobile.loader.prototype.options.html = "";
     });
     /*
      * Hide/show the page loading indicator during ajax loads
@@ -307,13 +307,13 @@
                     fn.apply(this, args);
                     // Initialize our page container
                     // Page container will exist if this is not the first page viewed
-                    if ($.mobile.pageContainer) {
+                   // if ($.mobile.pageContainer) {
                         $.mobile.pageContainer.append(this.$el);
                         this.$el.page().trigger("create");
-                    } else {
-                        $("body").append(this.$el);
-                        $.mobile.initializePage();
-                    }
+                    //} else {
+                        //$("body").append(this.$el);
+                       // $.mobile.initializePage();
+                    //}
                 };
                 clazz.prototype.initialize = _.wrap(clazz.prototype.initialize, initializeWrapper);
                 this[key] = new clazz(_.extend(args || {}, { router: this }));
@@ -326,17 +326,11 @@
             Backbone.Router.prototype.navigate.call(this, path, options);
             var pageId = page.el.id;
 
-            // Debug
-            //alert("Prev page:  " + $.mobile.activePage[0].id + "  New page:  " + pageId);
-            // end debug 
-
-            if ($.mobile.activePage && ($.mobile.activePage[0].id !== pageId)) {
-                $.mobile.changePage("#" + pageId, this.pageOptions);
+            if ($( "body" ).pagecontainer( "getActivePage" ) && ($( "body" ).pagecontainer( "getActivePage" )[0].id !== pageId)) {
+                $( "body" ).pagecontainer( "change", "#" + pageId, this.pageOptions);
                 // Track page view with GA
                 gaESF.gaTrackPage(pageId);
-
             }
-
 
         }
     });
@@ -393,31 +387,28 @@
             var $header = this.$("div[id=\"commonHeader\"]");
 
             if (this.nativeMode) {
-                headerHTML = "  <a class=\"back\" data-role=\"button\" data-icon=\"back\" data-direction=\"reverse\" href=\"" + route + "\" data-position=\"fixed\">Back</a>"
+                headerHTML = "  <a class=\"back\" class=\"ui-btn\" data-icon=\"back\" data-direction=\"reverse\" href=\"" + route + "\" data-position=\"fixed\">Back</a>";
            } else {
                 headerHTML = "<div data-role=\"header\" data-position=\"fixed\" data-tap-toggle=\"false\" data-add-back-btn=\"true\" >" +
-                       // "   <a id=\"back\" data-role=\"button\" data-inline=\"true\" data-transition=\"slide\" data-direction=\"reverse\" data-shadow=\"false\" href=\"" + route + "\">Back</a>" +	
-                        "   <a id=\"back\" data-role=\"button\" data-rel=\"back\" data-inline=\"true\" data-transition=\"slide\" data-direction=\"reverse\" data-shadow=\"false\" href=#>Back</a>" +	
-                        //"  <a id=\"back\" href=\"#\" data-icon=\"bars\" data-iconpos=\"notext\" data-role=\"button\">Home</a>" +
+                        "   <a id=\"back\" class=\"ui-btn\"  data-rel=\"back\" data-inline=\"true\" data-transition=\"slide\" data-direction=\"reverse\" data-shadow=\"false\" href=#>Back</a>" +	
                         "  <h1><div id = \"esfPageTitle\">" + title + "</div></h1>" + 
-                       // "   <a id=\"homeButton\" href=\"#\" data-icon=\"bars\" data-iconpos=\"notext\" data-role=\"button\" data-inline=\"true\" data-direction=\"reverse\" data-shadow=\"false\">Home</a>" + 
                         // Dropdown Menu
-                        "   <div data-role=\"collapsible\" id=\"optionsMenu\" class=\"rightMenu\" data-collapsed-icon=\"bars\" data-expanded-icon=\"bars\" data-iconpos=\"right\" >" +
-                        "   <h3 style=\"margin-left:-20%;\">      </h3>" +
-                        "   <ul data-role=\"listview\" class=\"item-list\" data-theme=\"d\">" + 
-                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#\">Home</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#about\">About</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#news\">News</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#events\">Events</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#directory\">Directory</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#video\">Video</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#maps\">Maps</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#social\">Social</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#dining\">Dining</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#athletics\">Athletics</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#giving\">Giving</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#admissions\">Admissions</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"http://www.esf.edu\">Main Site</a></li>" +
+                        "   <div data-role=\"collapsible\" id=\"optionsMenu\" class=\"rightMenu\" data-collapsed-icon=\"bars\" data-expanded-icon=\"bars\" data-iconpos=\"notext\">" +
+                        "   <h3>Menu</h3>" +
+                        "   <ul data-role=\"listview\" class=\"item-list\" data-theme=\"a\">" + 
+                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#\">Home</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#about\">About</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#news\">News</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#events\">Events</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#directory\">Directory</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#video\">Video</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#maps\">Maps</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#social\">Social</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#dining\">Dining</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#athletics\">Athletics</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#giving\">Giving</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#admissions\">Admissions</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"http://www.esf.edu\">Main Site</a></li>" +
                         "   </ul>" +
                         "   </div>" +
                         "</div>";
@@ -430,15 +421,13 @@
                var $footer = this.$("div[id=\"commonFooter\"]");
                var footerHTML =
                         "  <div data-role=\"footer\" data-position=\"fixed\" data-tap-toggle=\"false\" class=\"esfFooter\">" +
-                       // "  <div id = \"homeImg\" style=\"text-align:center;border:none\"><img src = \"images/homelogo.png\"></div>" +
                         "  <div data-role=\"navbar\" class=\"esfFooter\">" + 
                         "     <ul id=\"commonFooterNavbar\">" + 
-                        "       <li><a href=\"http://www.facebook.com/sunyesf/\" id=\"esfFB\" data-icon=\"custom\" data-corners=\"true\"></a></li>" + 
-                        "       <li><a href=\"https://twitter.com/sunyesf\" id=\"esfTW\" data-icon=\"custom\"></a></li>" +
-                        "       <li><a href=\"https://touch.www.linkedin.com/#group/1782788\" id=\"esfLI\" data-icon=\"custom\"></a></li>" +
-                        "       <li><a href=\"http://www.youtube.com/user/SUNYESFVIDEO\" id=\"esfYT\" data-icon=\"custom\"></a></li>" +
-                        "       <li><a href=\"http://sunyesf.wordpress.com/\" id=\"esfWP\" data-icon=\"custom\"></a></li>" +
-                       // "       <li><a href=\"http://deimos3.apple.com/WebObjects/Core.woa/Browse/esf.edu\" id=\"esfIT\" data-icon=\"custom\"></a></li>" +
+                        "       <li><a href=\"http://www.facebook.com/sunyesf/\" class=\"ui-icon-esfFB ui-shadow ui-corner-all\"></a></li>" + 
+                        "       <li><a href=\"https://twitter.com/sunyesf\"  class=\"ui-icon-esfTW ui-shadow ui-corner-all\"></a></li>" +
+                        "       <li><a href=\"https://touch.www.linkedin.com/#group/1782788\" class=\"ui-icon-esfLI ui-shadow ui-corner-all\"></a></li>" +
+                        "       <li><a href=\"http://www.youtube.com/user/SUNYESFVIDEO\" class=\"ui-icon-esfYT ui-shadow ui-corner-all\"></a></li>" +
+                        "       <li><a href=\"http://sunyesf.wordpress.com/\" class=\"ui-icon-esfWP ui-shadow ui-corner-all\"></a></li>" +
                         "   </ul>" +
                         "</div>" +
                         "</div>";
@@ -470,11 +459,13 @@
         },
         // Common function to intercept link clicks and prevent default change of page
         linkClick: function(e) {
-							 //  alert("Clicked link...");
             var id = arguments[0].currentTarget.id;
             var href = arguments[0].currentTarget.href;
             // Flag for external pages
             var isInt = href.indexOf("http");
+
+            // Collapse menu
+            $('#optionsMenu').collapsible('collapse');
 
             if (id == 'back') {
                // Route to previous page
@@ -488,12 +479,9 @@
             }
             else if (isInt == -1){
                // Ignore this click for internal app pages (i.e. menu click), Backbone will handle routing
-               // Hide menu
-              // var $menu = this.$("div[id=\"optionsMenu\"]");
-               //$menu.children().trigger("collapse");
-               $('#optionsMenu').children().trigger('collapse')
             }
             else {
+               // Prevent default changing of page for external links
                e.preventDefault();
                var target=$(e.target).data('target');
                var target2=$(this).data('target');
