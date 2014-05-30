@@ -420,17 +420,29 @@
         renderFooter: function() {
                var $footer = this.$("div[id=\"commonFooter\"]");
                var footerHTML =
-                        "  <div data-role=\"footer\" data-position=\"fixed\" data-tap-toggle=\"false\" class=\"esfFooter\">" +
-                        "  <div data-role=\"navbar\" class=\"esfFooter\">" + 
-                        "     <ul id=\"commonFooterNavbar\">" + 
-                        "       <li><a href=\"http://www.facebook.com/sunyesf/\" class=\"ui-icon-esfFB ui-shadow ui-corner-all\"></a></li>" + 
-                        "       <li><a href=\"https://twitter.com/sunyesf\"  class=\"ui-icon-esfTW ui-shadow ui-corner-all\"></a></li>" +
-                        "       <li><a href=\"https://touch.www.linkedin.com/#group/1782788\" class=\"ui-icon-esfLI ui-shadow ui-corner-all\"></a></li>" +
-                        "       <li><a href=\"http://www.youtube.com/user/SUNYESFVIDEO\" class=\"ui-icon-esfYT ui-shadow ui-corner-all\"></a></li>" +
-                        "       <li><a href=\"http://sunyesf.wordpress.com/\" class=\"ui-icon-esfWP ui-shadow ui-corner-all\"></a></li>" +
-                        "   </ul>" +
-                        "</div>" +
-                        "</div>";
+                        //"  <div data-role=\"footer\" data-position=\"fixed\" data-tap-toggle=\"false\" class=\"esfFooter\">" +
+                       // "  <div data-role=\"navbar\" class=\"esfFooter\">" + 
+                       // "     <ul>" + 
+                       // "       <li><a href=\"http://www.facebook.com/sunyesf/\" class=\"ui-icon-esfFB ui-shadow ui-corner-all\"></a></li>" + 
+                       // "       <li><a href=\"https://twitter.com/sunyesf\"  class=\"ui-icon-esfTW ui-shadow ui-corner-all\"></a></li>" +
+                       // "       <li><a href=\"https://touch.www.linkedin.com/#group/1782788\" class=\"ui-icon-esfLI ui-shadow ui-corner-all\"></a></li>" +
+                       // "       <li><a href=\"http://www.youtube.com/user/SUNYESFVIDEO\" class=\"ui-icon-esfYT ui-shadow ui-corner-all\"></a></li>" +
+                       // "       <li><a href=\"http://sunyesf.wordpress.com/\" class=\"ui-icon-esfWP ui-shadow ui-corner-all\"></a></li>" +
+                       // "   </ul>" +
+                       // "</div>" +
+						
+						
+                        "  <div data-role=\"footer\" data-position=\"fixed\" data-tap-toggle=\"false\" data-theme=\"b\">" + 
+                        "      <div data-role=\"navbar\">" + 
+                        "          <ul>" + 
+                        "          <li><a href=\"http://www.facebook.com/sunyesf/\" data-icon=\"esfFB\"></a></li>" + 
+                        "          <li><a href=\"https://twitter.com/sunyesf\" data-icon=\"esfTW\"></a></li>" + 
+                        "          <li><a href=\"https://touch.www.linkedin.com/#group/1782788\"  data-icon=\"esfLI\"></a></li>" + 
+                        "          <li><a href=\"http://www.youtube.com/user/SUNYESFVIDEO\"  data-icon=\"esfYT\"></a></li>" + 
+                        "          <li><a href=\"http://sunyesf.wordpress.com/\"  data-icon=\"esfWP\"></a></li>" + 
+                        "         </ul>" + 
+                        "    </div>" +  //<!-- /navbar -->
+                        "</div>"; //<!-- /footer -->
             $footer.html(footerHTML);
         },
         // Common function to open an external URL using PhoneGap InApp Browser

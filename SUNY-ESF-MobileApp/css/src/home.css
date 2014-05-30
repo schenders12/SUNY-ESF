@@ -32,8 +32,9 @@ and (max-device-width : 480px)  and (-webkit-device-pixel-ratio: 1) {
         width:300px;
         height:60px;
         left:50%;
-        margin-bottom: 49px;
+        margin-bottom: 40px;
         margin-left: -150px;
+        background-repeat: no-repeat;
      }
      #home {
         position:relative;
@@ -58,11 +59,12 @@ and (max-device-width : 480px)  and (-webkit-device-pixel-ratio: 1.5) {
         background-size:300% 300%    !important;
      }
     #commonImg {
-        background-image: url(../images/homelogo.png);
+        background-image: url(../images/homelogo_orig.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:60px;
+        height:125px;
+        background-repeat: no-repeat;
         left:50%;
         margin-bottom: 72px;
         margin-left: -150px;
@@ -91,11 +93,12 @@ and (max-device-width : 480px)  and (-webkit-device-pixel-ratio: 1.7) {
         background-size:300% 300%    !important;
      }
     #commonImg {
-        background-image: url(../images/homelogo.png);
+        background-image: url(../images/homelogo_orig.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:60px;
+        height:125px;
+        background-repeat: no-repeat;
         left:50%;
         margin-bottom: 72px;
         margin-left: -150px;
@@ -133,6 +136,7 @@ and (max-device-width : 480px) and (-webkit-device-pixel-ratio: 2)  {
         left:50%;
         margin-bottom: 50px;
         margin-left: -150px;
+        background-repeat: no-repeat;
      }
      #home {
         position:relative;
@@ -158,11 +162,12 @@ and (max-device-width : 640px) and (-webkit-device-pixel-ratio: 1)  {
         background-size:300% 300%    !important;
      }
     #commonImg {
-        background-image: url(../images/homelogo.png);
+        background-image: url(../images/homelogo_orig.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:60px;
+        height:125px;
+        background-repeat: no-repeat;
         left:50%;
         margin-bottom: 72px;
         margin-left: -150px;
@@ -191,11 +196,12 @@ and (max-device-width : 480px) and (-webkit-device-pixel-ratio: 3)  {
         background-size:300% 300%    !important;
      }
     #commonImg {
-        background-image: url(../images/homelogo.png);
+        background-image: url(../images/homelogo_orig.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:60px;
+        height:125px;
+        background-repeat: no-repeat;
         left:50%;
         margin-bottom: 72px;
         margin-left: -150px;
@@ -257,11 +263,12 @@ and (max-device-width : 685px) and(-webkit-device-pixel-ratio: 1.5) {
          background-size:240% 240%    !important;
     }
     #commonImg {
-        background-image: url(../images/homelogo.png);
+        background-image: url(../images/homelogo_orig.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:60px;
+        height:125px;
+        background-repeat: no-repeat;
         left:50%;
          margin-bottom: 72px;
         margin-left: -150px;
@@ -287,11 +294,12 @@ and (max-width: 690px){
          background-size:240% 240%    !important;
     }
     #commonImg {
-        background-image: url(../images/homelogo.png);
+        background-image: url(../images/homelogo_orig.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:60px;
+        height:125px;
+        background-repeat: no-repeat;
         left:50%;
          margin-bottom: 72px;
         margin-left: -150px;
@@ -317,11 +325,12 @@ and (max-width: 610px){
          background-size:240% 240%    !important;
     }
     #commonImg {
-        background-image: url(../images/homelogo.png);
+        background-image: url(../images/homelogo_orig.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:60px;
+        height:125px;
+        background-repeat: no-repeat;
         left:50%;
          margin-bottom: 72px;
         margin-left: -150px;
@@ -346,11 +355,12 @@ and (max-width: 1030px){
          background-size:240% 240%    !important;
     }
     #commonImg {
-        background-image: url(../images/homelogo.png);
+        background-image: url(../images/homelogo_orig.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:60px;
+        height:125px;
+        background-repeat: no-repeat;
         left:50%;
          margin-bottom: 72px;
         margin-left: -150px;
@@ -373,11 +383,13 @@ and (max-width: 1030px){
          background-size:240% 240%    !important;
     }
     #commonImg {
-        background-image: url(../images/homelogo.png);
+        background-image: url(../images/homelogo_orig.png);
+        background-repeat: no-repeat;
         position:absolute;
         bottom:0;
         width:300px;
-        height:60px;
+        height:125px;
+        background-repeat: no-repeat;
         left:50%;
          margin-bottom: 72px;
         margin-left: -150px;
@@ -404,11 +416,12 @@ and (max-width: 960px){
          background-size:240% 240%    !important;
     }
     #commonImg {
-        background-image: url(../images/homelogo.png);
+        background-image: url(../images/homelogo_orig.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:60px;
+        height:125px;
+        background-repeat: no-repeat;
         left:50%;
          margin-bottom: 72px;
         margin-left: -150px;
@@ -437,11 +450,12 @@ and (max-device-width : 1024px)  {
      background-repeat:repeat-x;
      }
     #commonImg {
-        background-image: url(../images/homelogo.png);
+        background-image: url(../images/homelogo_orig.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:60px;
+        height:125px;
+        background-repeat: no-repeat;
         left:50%;
         margin-bottom: 72px;
         margin-left: -150px;
@@ -471,11 +485,12 @@ and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71) and (device
          background-image: url(../images/blackfadeBG.png);
     }
     #commonImg {
-        background-image: url(../images/homelogo.png);
+        background-image: url(../images/homelogo_orig.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:60px;
+        height:125px;
+        background-repeat: no-repeat;
         left:50%;
          margin-bottom: 72px;
         margin-left: -150px;
