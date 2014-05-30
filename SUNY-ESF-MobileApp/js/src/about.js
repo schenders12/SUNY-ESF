@@ -93,18 +93,6 @@
             this.renderHeader('ESF Mobile Info', '#about');
             this.renderTheme();
         },
-        pushUnsubscribe: function(e) {
-                e.preventDefault();
-                if (pushESF.mySubscription) {
-                   pushESF.confirmPushStop();
-                }
-        },
-        pushSubscribe: function(e) {
-                e.preventDefault();
-                window.localStorage.setItem('mySubscription', 'true');
-                pushESF.mySubscription = true;
-                pushESF.pushStart();
-        }
     });
 
     var WelcomePage = BaseView.extend({
@@ -252,14 +240,13 @@
         },
         pushUnsubscribe: function(e) {
                 e.preventDefault();
-                pushESF.confirmPushStop();
+                   pushESF.confirmPushStop();
         },
         pushSubscribe: function(e) {
                 e.preventDefault();
                 pushESF.confirmPushStart();
         }
     });
-
     RouterManager.register({ routerClass: AboutRouter });
 
 })(jQuery);
