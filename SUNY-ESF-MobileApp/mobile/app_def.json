@@ -88,14 +88,4 @@
         "icon_low":"images/giving_icon.png",
         "icon_high":"images/giving_icon.png",
         "entry_url":"#giving"
-    },
-    {
-        "id":"admissions",
-        "secure":"0",
-        "name":"Giving",
-        "updated":"1335988356564",
-        "icon_low":"images/admissions_icon.png",
-        "icon_high":"images/admissions_icon.png",
-        "entry_url":"#admissions"
     }
-]
