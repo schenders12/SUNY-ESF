@@ -466,6 +466,7 @@
         },
         // Common function to intercept link clicks and prevent default change of page
         linkClick: function(e) {
+							alert("Link clibk....");
             var id = arguments[0].currentTarget.id;
             var href = arguments[0].currentTarget.href;
             // Flag for external pages
@@ -473,9 +474,11 @@
 
             // Collapse menu
            // $('#optionsMenu').collapsible('collapse'); // JQM 1.4.2
+		   alert("Collapse....");
             $('#optionsMenu').children().trigger('collapse'); // JQM 1.3.2
-
+		   alert("End collapse.");
             if (id == 'back') {
+				alert("Going back....");
                // Route to previous page
                window.history.back();
                return false;

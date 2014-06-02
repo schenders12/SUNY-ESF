@@ -20,6 +20,9 @@
     });
 
     var NewsPage = BaseView.extend({
+        events : {
+            "click a" : "linkClick",
+        },
        initialize: function(options) {
             // Initialize page HTML
             var html =

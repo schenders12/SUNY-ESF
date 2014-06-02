@@ -109,6 +109,9 @@
     });
 
     var MapChoicePage = BaseView.extend({
+        events: {
+            "click a": "linkClick"
+        },
        initialize: function(options) {
             var html =
                 "<div data-role=\"page\" id=\"esfMapChoice\">" +

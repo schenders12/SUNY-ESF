@@ -49,6 +49,9 @@
     });
 
     var IndexPage = BaseView.extend({
+        events: {
+            "click a": "linkClick"
+        },
         initialize: function() {
 			var html =
 				"<div data-role=\"page\" id=\"esfAbout\">" +

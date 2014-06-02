@@ -136,6 +136,9 @@
     });
 
    EventsUpcomingPage = BaseView.extend({
+        events : {
+            "click a" : "linkClick",
+        },
        initialize: function (options) {
             this.calendar = options.calendar;
             var todayRoute = '#events/list/' + this.calendar;
@@ -272,6 +275,9 @@
     });
 
     var EventChoicePage = BaseView.extend({
+        events : {
+            "click a" : "linkClick",
+        },
        initialize: function(options) {
             var html =
                 "<div data-role=\"page\" id=\"esfEventChoice\">" + 
