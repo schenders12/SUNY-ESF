@@ -18,7 +18,7 @@
 	"jqm_theme":"a",
         "subapps":
             [
-                "about", "news", "events", "directory", "maps", "video", "main", "dining", "athletics", "social", "giving", "admissions"
+                "about", "news", "events", "directory", "maps", "video", "main", "dining", "athletics", "social", "giving"
             ]
     },
     {
