@@ -15,7 +15,7 @@
         "watermark_high":"images/img_seal.png",
         "background_color_dark":"#000000",
         "background_color_light":"#FFFFFF",
-	"jqm_theme":"a",
+	"jqm_theme":"d",
         "subapps":
             [
                 "about", "news", "events", "directory", "maps", "video", "main", "dining", "athletics", "social", "giving"
