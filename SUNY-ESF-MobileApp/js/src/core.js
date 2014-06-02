@@ -486,7 +486,6 @@
 
             }
             else if (isInt == -1){
-				alert("Ignore click, backbone...");
                // Ignore this click for internal app pages (i.e. menu click), Backbone will handle routing
             }
             else {
