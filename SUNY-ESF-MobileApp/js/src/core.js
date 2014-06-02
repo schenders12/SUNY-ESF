@@ -443,7 +443,7 @@
                         "         </ul>" + 
                         "    </div>" +  //<!-- /navbar -->
                         "</div>"; //<!-- /footer -->
-            $footer.html(footerHTML);
+           // $footer.html(footerHTML);
         },
         // Common function to open an external URL using PhoneGap InApp Browser
         launchURL: function(title, url, target) {
