@@ -130,6 +130,7 @@
             "submit form": "submit",
             "change select": "selectChange",
             "tap a.ui-input-clear": "clearSearch",
+            "click a" : "linkClick"
         },
         initialize: function(options) {
             var html = 
@@ -303,6 +304,7 @@
 
     var PersonPage = BaseView.extend({
         events: {
+            "click a" : "linkClick"
         },
         initialize: function(options) {
             var html =

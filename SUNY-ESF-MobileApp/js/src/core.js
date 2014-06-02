@@ -398,22 +398,22 @@
                         "   <a id=\"back\" class=\"ui-btn\"  data-rel=\"back\" data-inline=\"true\" data-transition=\"slide\" data-direction=\"reverse\" data-shadow=\"false\" href=#>Back</a>" +	
                         "  <h1><div id = \"esfPageTitle\">" + title + "</div></h1>" + 
                         // Dropdown Menu
-                        "   <div data-role=\"collapsible\" id=\"optionsMenu\" class=\"rightMenu\" data-collapsed-icon=\"bars\" data-expanded-icon=\"bars\" data-iconpos=\"notext\">" +
+                        "   <div data-role=\"collapsible\" id=\"optionsMenu\" class=\"rightMenu\" data-collapsed-icon=\"bars\" data-expanded-icon=\"delete\" data-iconpos=\"notext\">" +
                         "   <h3>Menu</h3>" +
-                        "   <ul data-role=\"listview\" class=\"item-list\" data-theme=\"a\">" + 
-                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#\">Home</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#about\">About</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#news\">News</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#events\">Events</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#directory\">Directory</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#video\">Video</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#maps\">Maps</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#social\">Social</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#dining\">Dining</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#athletics\">Athletics</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#giving\">Giving</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"#admissions\">Admissions</a></li>" +
-                        "      <li data-icon=\"false\" data-theme=\"b\"><a href=\"http://www.esf.edu\">Main Site</a></li>" +
+                        "   <ul data-role=\"listview\" class=\"item-list\" data-theme=\"b\">" + 
+                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#\">Home</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#about\">About</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#news\">News</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#events\">Events</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#directory\">Directory</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#video\">Video</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#maps\">Maps</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#social\">Social</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#dining\">Dining</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#athletics\">Athletics</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#giving\">Giving</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"#admissions\">Admissions</a></li>" +
+                        "      <li data-icon=\"false\" data-theme=\"a\"><a href=\"http://www.esf.edu\">Main Site</a></li>" +
                         "   </ul>" +
                         "   </div>" +
                         "</div>";
@@ -472,7 +472,8 @@
             var isInt = href.indexOf("http");
 
             // Collapse menu
-            $('#optionsMenu').collapsible('collapse');
+           // $('#optionsMenu').collapsible('collapse'); // JQM 1.4.2
+            $('#optionsMenu').children().trigger('collapse'); // JQM 1.3.2
 
             if (id == 'back') {
                // Route to previous page
@@ -485,6 +486,7 @@
 
             }
             else if (isInt == -1){
+				alert("Ignore click, backbone...");
                // Ignore this click for internal app pages (i.e. menu click), Backbone will handle routing
             }
             else {

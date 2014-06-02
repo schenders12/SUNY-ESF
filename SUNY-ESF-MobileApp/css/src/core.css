@@ -246,16 +246,19 @@ and (max-device-width : 568px) {
     position: absolute;
     top:0%;   
     right:2%;
-    width: 70px !important;
+    width: 60px !important;
 	float: right;
 	text-align:right
 }
 
 .rightMenu .ui-collapsible-content .ui-listview {
-    margin: -10px -15px -10px -35px !important;
+    margin: -10px -0px -10px -10px !important;
 	float: right;
 	text-align:right
 }
 .rightMenu .ui-collapsible-content .ui-listview .ui-li .ui-btn-text{
 	text-align:right;
+}
+.ui-header .ui-btn-icon-right .ui-btn-inner {
+	padding-right:  5px;
 }
