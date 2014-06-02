@@ -311,7 +311,6 @@
                         $.mobile.pageContainer.append(this.$el);
                         this.$el.page().trigger("create");
                     } else {
-						alert("Init page...");
                         $("body").append(this.$el);
                         $.mobile.initializePage();
                     }
@@ -326,9 +325,7 @@
             // Call our "super" method
             Backbone.Router.prototype.navigate.call(this, path, options);
             var pageId = page.el.id;
-						alert("Navigate...");
             if ($.mobile.activePage && ($.mobile.activePage[0].id !== pageId)) {
-				alert("Changing page..." + pageId);
                 $.mobile.changePage("#" + pageId, this.pageOptions);
                 // Track page view with GA
                 gaESF.gaTrackPage(pageId);
