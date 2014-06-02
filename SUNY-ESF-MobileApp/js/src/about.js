@@ -75,7 +75,7 @@
 
     var AboutPage = BaseView.extend({
         events: {
-            "click #mail": "linkClick",
+            "click a": "linkClick"
         },
         initialize: function() {
             var html =
@@ -83,6 +83,11 @@
                 " <div id = \"commonHeader\"></div>" + 
                 "  <div data-role=\"content\">" +
                 "    <p class=\"help\">The ESF Mobile App was developed internally by the ESF Communications Department.</p>" +
+                "    <p class=\"help\">The following technologies were used:</p>" +
+                "    <p class=\"help\">       Backbone/Underscore</br>" +
+                "    <class=\"help\">       Jquery Mobile</br>" +
+                "    <class=\"help\">       Leaflet Maps</br>Open Street Map Tiles</br>" +
+                "    <class=\"help\">       Adobe Phone Gap Build</p>" +
                 "    <p class=\"help\">Please contact" + 
                 "    <a href=\"mailto:mobile@esf.edu\" id=\"mail\">mobile@esf.edu</a> with any questions or comments.</p>" +
                 "  </div>" +
@@ -203,6 +208,7 @@
         events: {
             "click #pushUnsubscribe" : "pushUnsubscribe",
             "click #pushSubscribe" : "pushSubscribe",
+            "click a": "linkClick"
         },
         initialize: function() {
             var html =
@@ -240,7 +246,7 @@
         },
         pushUnsubscribe: function(e) {
                 e.preventDefault();
-                   pushESF.confirmPushStop();
+                pushESF.confirmPushStop();
         },
         pushSubscribe: function(e) {
                 e.preventDefault();

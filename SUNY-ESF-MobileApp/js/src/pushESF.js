@@ -148,6 +148,7 @@
                              if (button === 1) {
                                 console.log('Subscribing to ESF Push notifications');
                                  this.pushStart();
+                                 this.$el.page().trigger("render");
                                } else if (button === 2) {
                                     // do nothing
                                }
@@ -158,6 +159,7 @@
                   window.localStorage.setItem('mySubscription', 'false');
                   console.log('Unsubscribing from ESF Push, sayonara!!!');
                   pushNotification.unregisterDevice(this.esfPushWooshId, this.myDeviceToken);
+                  this.$el.page().trigger("render");
 
              } else if (button === 2) {
                 // do nothing
