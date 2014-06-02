@@ -53,7 +53,7 @@
 
                 //this.gaInit(); // for some reason call to gaInit() does not work so had to cut& paste code
                 //gaPlugin.init(this.gaSuccessInitHandler, this.gaErrorInitHandler, "UA-5865890-4", 10);
-                gaPlugin.init(this.gaSuccessInitHandler, this.gaErrorInitHandler, this.esfGAId, 10);
+                gaPlugin.init(this.gaSuccessInitHandler, this.gaErrorInitHandler, "UA-5865890-4", 10);
                 gaPlugin.trackPage( this.nativePluginResultHandler, this.nativePluginErrorHandler, "Index.html");
                 console.log('GA is successfully Tracking the ESF Mobile App!!!');
                 // end cut&paste of gaInit()(
@@ -65,16 +65,16 @@
                 console.log('Did not receive permission for Google Analytics and will not ask again   :(:( !!');
              }
        },
-       gaSuccessInitHandler: function () {
+       gaSuccessInitHandler: function (result) {
              console.log('Successfully initialized Google Analytics   :):) !!');
        },
-       gaErrorInitHandler: function () {
+       gaErrorInitHandler: function (error) {
              console.log('Failed to initialize Google Analytics :(:(:( ');
        },
-       nativePluginResultHandler: function () {
+       nativePluginResultHandler: function (result) {
              console.log('Successfully tracking new page with GA   :):) !!');
        },
-       nativePluginErrorHandler: function () {
+       nativePluginErrorHandler: function (error) {
              console.log('Failed to track GA Page view:(:(:( ');
        },
        exit: function() {
