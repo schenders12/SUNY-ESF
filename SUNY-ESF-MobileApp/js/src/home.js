@@ -52,7 +52,7 @@
             this.setElement(html);
             this.renderFooter();
             this.renderTheme(true);
-            this.$el.bind("pagecreate", _.bind(function() {
+            this.$el.bind("pageinit", _.bind(function() {
                 this.render();
             }, this));
             this.$el.bind("pagecontainerbeforeshow", _.bind(function() {
@@ -87,18 +87,17 @@
             if (!this.router.nativeMode) {
                 header +=
                     "  <div data-role=\"header\">" +
-                    //"    <a href=\"#\" data-icon=\"home\" data-iconpos=\"notext\" data-role=\"button\">Home</a>" +
-					
+                    "    <a href=\"#\" data-icon=\"home\" data-iconpos=\"notext\" data-role=\"button\">Home</a>" +
                     "    <h1>Settings</h1>" +
                     "  </div>";
             }
             var html = 
                 "<div id=\"settings\" data-role=\"page\" >" + header +
                 "  <div id=\"content\" data-role=\"content\">" +
-                "    <a href=\"#themes\" class=\"ui-btn\" >Select a different theme</a>" +
+                "    <a href=\"#themes\" data-role=\"button\" >Select a different theme</a>" +
                 "    <div id=\"subapps\"></div>" +
-                "    <a id=\"reset\" href=\"#settings\" class=\"ui-btn\" >Reset default configuration</a>" +
-                "    <a href=\"#\" class=\"ui-btn\" data-icon=\"back\" >Finished</a>" +
+                "    <a id=\"reset\" href=\"#settings\" data-role=\"button\" >Reset default configuration</a>" +
+                "    <a href=\"#\" data-role=\"button\" data-icon=\"back\" >Finished</a>" +
                 "  </div>" +
                 "</div>";
             this.setElement(html);

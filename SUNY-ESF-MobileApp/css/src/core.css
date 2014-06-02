@@ -163,115 +163,57 @@ and (max-device-width : 568px) {
     }
 	
 }
-.ui-footer { 
-    padding-bottom:  0px;
-    height: 60px!important; 
+
+.esfFooter .ui-btn .ui-btn-inner {
+    padding-top: 60px !important; 
 }
-.ui-navbar { 
-    height:inherit;
-	text-align:  center;
-}
-.ui-navbar li { 
-    height:inherit;
-	text-align:  center;
-}
-.ui-navbar li a { 
-    height:inherit;
-	text-align:  center;
-}
-.ui-navbar ul { 
-    height:inherit;
-	text-align:  center;
-}
-.esfFooter .ui-navbar .ui-btn {
-    background-color:  #545454;
-    -webkit-border-radius: 10px !important;
-    border-radius: 10px !important;
+
+.esfFooter .ui-btn .ui-icon { 
     width: 45px!important; 
-    height: 30px!important; 
-   /* margin-left: -24px !important;*/
-    margin-top: 6px !important;
-    /*padding-left: 10px !important; 
-    padding-top: 7px !important; */
-    background-position: center;
-    background-repeat: no-repeat;
+    height: 45px!important; 
+    margin-left: -24px !important; 
+    box-shadow: none!important; 
+    -moz-box-shadow: none!important; 
+    -webkit-box-shadow: none!important;
+    -webkit-border-radius: 7px !important;
+    border-radius: 7px !important; 
+    /*background-color:white;*/
+    background: url(../images/blackfadeBG.png);
+}
+.ui-footer-fixed {
+    padding-bottom: 0px;
 }
 
-.esfFooter .ui-navbar ul { 
-    max-width: 320px!important; 
-	text-align:  center;
-	    width:100%;
-		    display: block;
-}
-
-.ui-icon-esfFB:after {
+#esfFB .ui-icon { 
     background-image: url(../images/facebook_bar.png);
-    background-repeat: no-repeat;
-    height: 45px!important; 
-    width: 45px!important;
-    background-position: center;
+    background-position: 0px,0px;
+    background-repeat: no-repeat; 
 }
-.ui-icon-esfTW:after {
-    background-image: url(../images/Twitter_logo_blue_bar.png);
-    background-repeat: no-repeat;
-    height: 45px!important; 
-    width: 45px!important;
-    background-position: center;
-}
-.ui-icon-esfLI:after {
-    background-image: url(../images/LinkedIn_bar.png);
-    background-repeat: no-repeat;
-    height: 45px!important; 
-    width: 45px!important;
-    background-position: center;
-}
-.ui-icon-esfYT:after {
-    background-image: url(../images/YouTube_bar.png);
-    background-repeat: no-repeat;
-    height: 45px!important; 
-    width: 45px!important;
-    background-position: center;
-}
-.ui-icon-esfWP:after {
-    background-image: url(../images/wordpress100.png);
-    background-repeat: no-repeat;
-    height: 45px!important; 
-    width: 45px!important;
-    background-position: center;
-}
-/*.esfFooter .ui-icon-esfTW{ 
+
+#esfTW .ui-icon { 
     background-image: url(../images/Twitter_logo_blue_bar.png);
     background-position: 0px,0px;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; 
 }
 
-.esfFooter .ui-icon-esfLI { 
+#esfLI .ui-icon { 
     background-image: url(../images/LinkedIn_bar.png);
     background-position: 0px,0px;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; 
 }
 
-.esfFooter .ui-icon-esfYT { 
+#esfYT .ui-icon { 
     background-image: url(../images/YouTube_bar.png);
     background-position: 0px,0px;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; 
 }
 
-.esfFooter .ui-icon-esfWP { 
+#esfWP .ui-icon { 
     background-image: url(../images/wordpress100.png);
     background-position: 0px,0px;
-    background-repeat: no-repeat;
-}*/
-.esf_ListChoice li h4 {
-        font-size: 13.5px;!important;
-        color: #01589d;
-        margin: 0px;
-        padding: 0px 0px 0px 0px;
-        text-transform: uppercase;
-        /*background-color: blue;*/
+    background-repeat: no-repeat; 
 }
-
-.esf_ListChoice ui-li-heading {
+.esf_ListChoice h4 {
         font-size: 13.5px;
         color: #01589d;
         margin: 0px;
@@ -280,7 +222,7 @@ and (max-device-width : 568px) {
         /*background-color: blue;*/
 }
 
-.esf_ListChoice ui-btn {
+.esf_ListChoice ui-li-heading {
         font-size: 13.5px;
         color: #01589d;
         margin: 0px;
@@ -302,25 +244,18 @@ and (max-device-width : 568px) {
 
 .rightMenu {
     position: absolute;
-    top:2%;   
+    top:0%;   
     right:2%;
-    width: 100px !important;
-    height: 30px !important;
+    width: 70px !important;
 	float: right;
 	text-align:right
 }
-.rightMenu h3 {
-   /* position: absolute;
-    top:0%;   
-    right:2%;
-	float: right;
-	text-align:right*/
-}
+
 .rightMenu .ui-collapsible-content .ui-listview {
-   /* margin: -10px -15px -10px -35px !important;
+    margin: -10px -15px -10px -35px !important;
 	float: right;
-	text-align:right*/
+	text-align:right
 }
-.rightMenu .ui-collapsible-content .ui-listview li a.ui-btn.ui-btn-b {
+.rightMenu .ui-collapsible-content .ui-listview .ui-li .ui-btn-text{
 	text-align:right;
 }

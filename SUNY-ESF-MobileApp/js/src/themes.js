@@ -20,7 +20,7 @@
             if (!this.router.nativeMode) {
                 header +=
                     "  <div data-role=\"header\">" +
-                   // "    <a href=\"#\" data-icon=\"bars\" data-iconpos=\"notext\" data-role=\"button\">Home</a>" +
+                    "    <a href=\"#\" data-icon=\"bars\" data-iconpos=\"notext\" data-role=\"button\">Home</a>" +
                     "    <h1>Themes</h1>" +
                     "  </div>";
             }

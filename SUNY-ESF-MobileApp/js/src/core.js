@@ -29,7 +29,7 @@
         $.mobile.hashListeningEnabled = false;
         $.mobile.linkBindingEnabled = false;
         $.mobile.pushStateEnabled = false;
-        //$.mobile.autoInitializePage = false;
+        $.mobile.autoInitializePage = false;
         $.mobile.defaultPageTransition = "none";
 		$.mobile.allowCrossDomainPages = true;
 		$.support.cors = true;
@@ -37,11 +37,11 @@
 		
 		// Hack to fix possible bug in jquery mobile 1.3.2
 		// Mobile loader widget is not created properly
-       // $.mobile.loaderWidget = $.mobile.loaderWidget || $( $.mobile.loader.prototype.defaultHtml ).loader();
-       // $.mobile.loader.prototype.options.text = "ESF App loading...";
-       // $.mobile.loader.prototype.options.textVisible = false;
-       // $.mobile.loader.prototype.options.theme = "a";
-       // $.mobile.loader.prototype.options.html = "";
+        $.mobile.loaderWidget = $.mobile.loaderWidget || $( $.mobile.loader.prototype.defaultHtml ).loader();
+        $.mobile.loader.prototype.options.text = "ESF App loading...";
+        $.mobile.loader.prototype.options.textVisible = false;
+        $.mobile.loader.prototype.options.theme = "a";
+        $.mobile.loader.prototype.options.html = "";
     });
     /*
      * Hide/show the page loading indicator during ajax loads
@@ -307,13 +307,14 @@
                     fn.apply(this, args);
                     // Initialize our page container
                     // Page container will exist if this is not the first page viewed
-                   // if ($.mobile.pageContainer) {
+                    if ($.mobile.pageContainer) {
                         $.mobile.pageContainer.append(this.$el);
                         this.$el.page().trigger("create");
-                    //} else {
-                        //$("body").append(this.$el);
-                       // $.mobile.initializePage();
-                    //}
+                    } else {
+						alert("Init page...");
+                        $("body").append(this.$el);
+                        $.mobile.initializePage();
+                    }
                 };
                 clazz.prototype.initialize = _.wrap(clazz.prototype.initialize, initializeWrapper);
                 this[key] = new clazz(_.extend(args || {}, { router: this }));
@@ -325,9 +326,10 @@
             // Call our "super" method
             Backbone.Router.prototype.navigate.call(this, path, options);
             var pageId = page.el.id;
-
-            if ($( "body" ).pagecontainer( "getActivePage" ) && ($( "body" ).pagecontainer( "getActivePage" )[0].id !== pageId)) {
-                $( "body" ).pagecontainer( "change", "#" + pageId, this.pageOptions);
+						alert("Navigate...");
+            if ($.mobile.activePage && ($.mobile.activePage[0].id !== pageId)) {
+				alert("Changing page..." + pageId);
+                $.mobile.changePage("#" + pageId, this.pageOptions);
                 // Track page view with GA
                 gaESF.gaTrackPage(pageId);
             }
@@ -339,8 +341,14 @@
      */
     BaseView = Backbone.View.extend({
       events : {
-           "click a": "linkClick"
+           "click #mainSite" : "linkClick",
+           "click #esfFB" : "linkClick",
+           "click #esfTW" : "linkClick",
+           "click #esfLI" : "linkClick",
+           "click #esfYT" : "linkClick",
+           "click #esfWP" : "linkClick",
        },
+
         // Pass our global event aggregator
         eventAggr: EventAggr,
         // Utility method typically called in page initializer to decorate our page with
@@ -420,30 +428,20 @@
         renderFooter: function() {
                var $footer = this.$("div[id=\"commonFooter\"]");
                var footerHTML =
-                        //"  <div data-role=\"footer\" data-position=\"fixed\" data-tap-toggle=\"false\" class=\"esfFooter\">" +
-                       // "  <div data-role=\"navbar\" class=\"esfFooter\">" + 
-                       // "     <ul>" + 
-                       // "       <li><a href=\"http://www.facebook.com/sunyesf/\" class=\"ui-icon-esfFB ui-shadow ui-corner-all\"></a></li>" + 
-                       // "       <li><a href=\"https://twitter.com/sunyesf\"  class=\"ui-icon-esfTW ui-shadow ui-corner-all\"></a></li>" +
-                       // "       <li><a href=\"https://touch.www.linkedin.com/#group/1782788\" class=\"ui-icon-esfLI ui-shadow ui-corner-all\"></a></li>" +
-                       // "       <li><a href=\"http://www.youtube.com/user/SUNYESFVIDEO\" class=\"ui-icon-esfYT ui-shadow ui-corner-all\"></a></li>" +
-                       // "       <li><a href=\"http://sunyesf.wordpress.com/\" class=\"ui-icon-esfWP ui-shadow ui-corner-all\"></a></li>" +
-                       // "   </ul>" +
-                       // "</div>" +
-						
-						
-                        "  <div data-role=\"footer\" data-position=\"fixed\" data-tap-toggle=\"false\" data-theme=\"b\">" + 
-                        "      <div data-role=\"navbar\">" + 
-                        "          <ul>" + 
-                        "          <li><a href=\"http://www.facebook.com/sunyesf/\" data-icon=\"esfFB\"></a></li>" + 
-                        "          <li><a href=\"https://twitter.com/sunyesf\" data-icon=\"esfTW\"></a></li>" + 
-                        "          <li><a href=\"https://touch.www.linkedin.com/#group/1782788\"  data-icon=\"esfLI\"></a></li>" + 
-                        "          <li><a href=\"http://www.youtube.com/user/SUNYESFVIDEO\"  data-icon=\"esfYT\"></a></li>" + 
-                        "          <li><a href=\"http://sunyesf.wordpress.com/\"  data-icon=\"esfWP\"></a></li>" + 
+                        "  <div data-role=\"footer\" data-position=\"fixed\" data-tap-toggle=\"false\" class=\"esfFooter\">" +
+                       // "  <div id = \"homeImg\" style=\"text-align:center;border:none\"><img src = \"images/homelogo.png\"></div>" +
+                        "  <div data-role=\"navbar\" class=\"esfFooter\">" + 
+                        "     <ul id=\"commonFooterNavbar\">" + 
+                        "       <li><a href=\"http://www.facebook.com/sunyesf/\" id=\"esfFB\" data-icon=\"custom\" data-corners=\"true\"></a></li>" + 
+                        "       <li><a href=\"https://twitter.com/sunyesf\" id=\"esfTW\" data-icon=\"custom\"></a></li>" +
+                        "       <li><a href=\"https://touch.www.linkedin.com/#group/1782788\" id=\"esfLI\" data-icon=\"custom\"></a></li>" +
+                        "       <li><a href=\"http://www.youtube.com/user/SUNYESFVIDEO\" id=\"esfYT\" data-icon=\"custom\"></a></li>" +
+                        "       <li><a href=\"http://sunyesf.wordpress.com/\" id=\"esfWP\" data-icon=\"custom\"></a></li>" +
+                       // "       <li><a href=\"http://deimos3.apple.com/WebObjects/Core.woa/Browse/esf.edu\" id=\"esfIT\" data-icon=\"custom\"></a></li>" +
                         "         </ul>" + 
-                        "    </div>" +  //<!-- /navbar -->
-                        "</div>"; //<!-- /footer -->
-           // $footer.html(footerHTML);
+                        "</div>" +
+                        "</div>";
+            $footer.html(footerHTML);
         },
         // Common function to open an external URL using PhoneGap InApp Browser
         launchURL: function(title, url, target) {

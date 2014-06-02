@@ -22,7 +22,7 @@ and (max-device-width : 480px)  and (-webkit-device-pixel-ratio: 1) {
     body {
       /* -webkit-text-size-adjust: none;*/
     }
-     .ui-overlay-a {
+     .ui-overlay-d {
         background-image: url(../images/blackfadeBG3G.png);
      }
     #commonImg {
@@ -32,9 +32,8 @@ and (max-device-width : 480px)  and (-webkit-device-pixel-ratio: 1) {
         width:300px;
         height:60px;
         left:50%;
-        margin-bottom: 40px;
+        margin-bottom: 49px;
         margin-left: -150px;
-        background-repeat: no-repeat;
      }
      #home {
         position:relative;
@@ -53,18 +52,17 @@ and (max-device-width : 480px)  and (-webkit-device-pixel-ratio: 1.5) {
     body {
       /* -webkit-text-size-adjust: none;*/
     }
-     .ui-overlay-a {
+     .ui-overlay-d {
         background-image: url(../images/blackfadeBG3G.png);
         background-size:cover  !important;
         background-size:300% 300%    !important;
      }
     #commonImg {
-        background-image: url(../images/homelogo_orig.png);
+        background-image: url(../images/homelogo.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:125px;
-        background-repeat: no-repeat;
+        height:60px;
         left:50%;
         margin-bottom: 72px;
         margin-left: -150px;
@@ -87,18 +85,17 @@ and (max-device-width : 480px)  and (-webkit-device-pixel-ratio: 1.7) {
     body {
       /* -webkit-text-size-adjust: none;*/
     }
-     .ui-overlay-a {
+     .ui-overlay-d {
         background-image: url(../images/blackfadeBG3G.png);
         background-size:cover  !important;
         background-size:300% 300%    !important;
      }
     #commonImg {
-        background-image: url(../images/homelogo_orig.png);
+        background-image: url(../images/homelogo.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:125px;
-        background-repeat: no-repeat;
+        height:60px;
         left:50%;
         margin-bottom: 72px;
         margin-left: -150px;
@@ -122,7 +119,7 @@ and (max-device-width : 480px) and (-webkit-device-pixel-ratio: 2)  {
     body {
       /* -webkit-text-size-adjust: none;*/
     }
-     .ui-overlay-a {
+     .ui-overlay-d {
         background-image: url(../images/blackfadeBG3G.png);
         background-size:cover  !important;
         background-size:300% 300%    !important;
@@ -136,7 +133,6 @@ and (max-device-width : 480px) and (-webkit-device-pixel-ratio: 2)  {
         left:50%;
         margin-bottom: 50px;
         margin-left: -150px;
-        background-repeat: no-repeat;
      }
      #home {
         position:relative;
@@ -156,18 +152,17 @@ and (max-device-width : 640px) and (-webkit-device-pixel-ratio: 1)  {
     body {
       /* -webkit-text-size-adjust: none;*/
     }
-     .ui-overlay-a {
+     .ui-overlay-d {
         background-image: url(../images/blackfadeBG3G.png);
         background-size:cover  !important;
         background-size:300% 300%    !important;
      }
     #commonImg {
-        background-image: url(../images/homelogo_orig.png);
+        background-image: url(../images/homelogo.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:125px;
-        background-repeat: no-repeat;
+        height:60px;
         left:50%;
         margin-bottom: 72px;
         margin-left: -150px;
@@ -190,18 +185,17 @@ and (max-device-width : 480px) and (-webkit-device-pixel-ratio: 3)  {
     body {
       /* -webkit-text-size-adjust: none;*/
     }
-     .ui-overlay-a {
+     .ui-overlay-d {
         background-image: url(../images/blackfadeBG.png);
         background-size:cover  !important;
         background-size:300% 300%    !important;
      }
     #commonImg {
-        background-image: url(../images/homelogo_orig.png);
+        background-image: url(../images/homelogo.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:125px;
-        background-repeat: no-repeat;
+        height:60px;
         left:50%;
         margin-bottom: 72px;
         margin-left: -150px;
@@ -229,7 +223,7 @@ and (max-width : 479px) {
 /* LG Optimus One */
 @media only screen
 and (max-width: 241px){
-     .ui-overlay-a {
+     .ui-overlay-d {
         background-image: url(../images/blackfadeBG3G.png);
         background-size:cover  !important;
         background-size:100% 100%    !important;
@@ -258,17 +252,16 @@ and (max-width: 241px){
 @media only screen
 and (min-device-width : 380px) 
 and (max-device-width : 685px) and(-webkit-device-pixel-ratio: 1.5) {
-    .ui-overlay-a {
+    .ui-overlay-d {
          background-image: url(../images/blackfadeBG.png);
          background-size:240% 240%    !important;
     }
     #commonImg {
-        background-image: url(../images/homelogo_orig.png);
+        background-image: url(../images/homelogo.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:125px;
-        background-repeat: no-repeat;
+        height:60px;
         left:50%;
          margin-bottom: 72px;
         margin-left: -150px;
@@ -289,17 +282,16 @@ and (max-device-width : 685px) and(-webkit-device-pixel-ratio: 1.5) {
 and (min-width: 680px)
 and (max-width: 690px){
 	 /* big landscape tablets, laptops, and desktops */
-    .ui-overlay-a {
+    .ui-overlay-d {
          background-image: url(../images/blackfadeBG.png);
          background-size:240% 240%    !important;
     }
     #commonImg {
-        background-image: url(../images/homelogo_orig.png);
+        background-image: url(../images/homelogo.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:125px;
-        background-repeat: no-repeat;
+        height:60px;
         left:50%;
          margin-bottom: 72px;
         margin-left: -150px;
@@ -320,17 +312,16 @@ and (max-width: 690px){
 and (min-width: 595px)
 and (max-width: 610px){
 	 /* big landscape tablets, laptops, and desktops */
-    .ui-overlay-a {
+    .ui-overlay-d {
          background-image: url(../images/blackfadeBG.png);
          background-size:240% 240%    !important;
     }
     #commonImg {
-        background-image: url(../images/homelogo_orig.png);
+        background-image: url(../images/homelogo.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:125px;
-        background-repeat: no-repeat;
+        height:60px;
         left:50%;
          margin-bottom: 72px;
         margin-left: -150px;
@@ -350,17 +341,16 @@ and (max-width: 610px){
 @media only screen
 and (min-width: 1000px)
 and (max-width: 1030px){
-    .ui-overlay-a {
+    .ui-overlay-d {
          background-image: url(../images/blackfadeBG.png);
          background-size:240% 240%    !important;
     }
     #commonImg {
-        background-image: url(../images/homelogo_orig.png);
+        background-image: url(../images/homelogo.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:125px;
-        background-repeat: no-repeat;
+        height:60px;
         left:50%;
          margin-bottom: 72px;
         margin-left: -150px;
@@ -378,18 +368,16 @@ and (max-width: 1030px){
 /* Browsers */
 @media (min-width:1281px) {
  /* hi-res laptops and desktops */
-    .ui-overlay-a {
+    .ui-overlay-d {
          background-image: url(../images/blackfadeBG.png);
          background-size:240% 240%    !important;
     }
     #commonImg {
-        background-image: url(../images/homelogo_orig.png);
-        background-repeat: no-repeat;
+        background-image: url(../images/homelogo.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:125px;
-        background-repeat: no-repeat;
+        height:60px;
         left:50%;
          margin-bottom: 72px;
         margin-left: -150px;
@@ -411,17 +399,16 @@ and (min-width: 540px)
 and (max-width: 960px){
 
  /* hi-res laptops and desktops */
-    .ui-overlay-a {
+    .ui-overlay-d {
          background-image: url(../images/blackfadeBG.png);
          background-size:240% 240%    !important;
     }
     #commonImg {
-        background-image: url(../images/homelogo_orig.png);
+        background-image: url(../images/homelogo.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:125px;
-        background-repeat: no-repeat;
+        height:60px;
         left:50%;
          margin-bottom: 72px;
         margin-left: -150px;
@@ -444,18 +431,17 @@ and (max-width: 960px){
 @media only screen 
 and (min-device-width : 768px) 
 and (max-device-width : 1024px)  {
-     .ui-overlay-a {
+     .ui-overlay-d {
      background-image: url(../images/blackfadeBG.png);
      background-size:240% 240%    !important;
      background-repeat:repeat-x;
      }
     #commonImg {
-        background-image: url(../images/homelogo_orig.png);
+        background-image: url(../images/homelogo.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:125px;
-        background-repeat: no-repeat;
+        height:60px;
         left:50%;
         margin-bottom: 72px;
         margin-left: -150px;
@@ -481,16 +467,15 @@ and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71) and (device
     body {
       /* -webkit-text-size-adjust: none;*/
     }
-    .ui-overlay-a {
+    .ui-overlay-d {
          background-image: url(../images/blackfadeBG.png);
     }
     #commonImg {
-        background-image: url(../images/homelogo_orig.png);
+        background-image: url(../images/homelogo.png);
         position:absolute;
         bottom:0;
         width:300px;
-        height:125px;
-        background-repeat: no-repeat;
+        height:60px;
         left:50%;
          margin-bottom: 72px;
         margin-left: -150px;

@@ -26,7 +26,7 @@
 
     var MapsPage = BaseView.extend({
        events : {
-            "pagecreate":  "initMap",
+            "pageinit":  "initMap",
             "pagebeforeshow": "showMap",
             "pagebeforehide": "hideMap",
             "click a" : "linkClick"
