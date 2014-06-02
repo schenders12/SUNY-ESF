@@ -88,5 +88,14 @@
         "icon_low":"images/giving_icon.png",
         "icon_high":"images/giving_icon.png",
         "entry_url":"#giving"
-    }
+    },
+     {
+        "id":"giving",
+        "secure":"0",
+        "name":"Giving",
+        "updated":"1335988356564",
+        "icon_low":"images/giving_icon.png",
+        "icon_high":"images/giving_icon.png",
+        "entry_url":"#giving"
+    }   
 ]
