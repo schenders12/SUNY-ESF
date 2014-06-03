@@ -21,10 +21,11 @@
                 " <div id = \"commonHeader\"></div>" +
                 " <div data-role=\"content\">" + "</div>" +
                 "   <ul data-role=\"listview\" data-inset=\"true\" class=\"esf_ListChoice\">" + 
-                "      <li><a href=\"http://www.esf.edu/admissions\" data-target=\"_blank\"><h4>Admissions Home Page</h4></a></li>" +
-                "      <li><a href=\"http://www.esf.edu/admissions/programs.htm\" data-target=\"_blank\"><h4>Undergraduate Degree Programs</h4></a></li>" +
+                "      <li><a href=\"http://www.esf.edu/admissions\" data-target=\"_blank\"><h4>Undergraduate Admissions Home Page</h4></a></li>" +
+                "      <li><a href=\"http://www.esf.edu/graduate\" data-target=\"_blank\"><h4>The Graduate School</h4></a></li>" +
+                "      <li><a href=\"http://www.esf.edu/catalog/programs.htm\" data-target=\"_blank\"><h4>Degree Programs</h4></a></li>" +
+                "      <li><a href=\"http://www.esf.edu/housing\" data-target=\"_blank\"><h4>Housing & Meal Plans</h4></a></li>" +
                 "      <li><a href=\"http://www.esf.edu/financialaid\" data-target=\"_blank\"><h4>Financial Aid</h4></a></li>" + 
-                "      <li><a href=\"http://www.esf.edu/housing\" data-target=\"_blank\"><h4>Housing</h4></a></li>" +
                 "    </ul>" + 
                 " <div id = \"commonFooter\"></div>" +
                 "</div>";

@@ -12,3 +12,8 @@
 #esfSocialListview .ui-li {
     height : 60px;
 }
+.ui-listview .ui-li-icon {
+max-height: 40px;
+max-width: 40px;
+
+}

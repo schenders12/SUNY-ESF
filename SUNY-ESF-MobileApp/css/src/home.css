@@ -183,9 +183,11 @@ and (max-device-width : 640px) and (-webkit-device-pixel-ratio: 1)  {
 }
 
 /* Samsung Galaxy 4 */
-@media only screen 
+/*@media only screen 
 and (min-device-width : 320px) 
-and (max-device-width : 480px) and (-webkit-device-pixel-ratio: 3)  {
+and (max-device-width : 480px) and (-webkit-device-pixel-ratio: 3)  {*/
+	
+@media only screen and (-webkit-device-pixel-ratio: 3)  {
     /* increase font size on higher resolution */
     body {
       /* -webkit-text-size-adjust: none;*/

@@ -52,7 +52,11 @@
 
             // Get user's location
             this.map.locate({setView: false, maxZoom: 17});
-            this.map.on('locationfound', this.onLocationFound);
+            //this.map.on('locationfound', this.onLocationFound);
+
+            // Prevent double map locatin prompt 
+            //(see http://stackoverflow.com/questions/13857165/how-to-prevent-double-prompt-for-geolocation-in-phonegap-app
+            navigator.geolocation.getCurrentPosition(onsuccess, onerror, params);
 
             // Add layers
             this.mapModel.addLayers(this.map);
