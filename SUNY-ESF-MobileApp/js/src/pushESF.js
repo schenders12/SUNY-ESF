@@ -20,6 +20,16 @@
              this.myPlatform = myPlatform;
              console.log('Push Platform set to ' + this.myPlatform);
        },
+      // pushInit: function() {
+      //       console.log('Initializing Push...');
+            // Detect if registered for Push Notifications
+      //       var pushSubscribe = window.localStorage.getItem('mySubscription');
+      //      this.setPlatform(window.device.platform);
+      //      if (!pushSubscribe) {
+      //         window.localStorage.setItem('mySubscription', 'true');
+      //         this.pushStart();
+      //      }
+     //  },
        pushStart: function() {
              console.log('Starting Push...');
              // this.mySubscription = window.localStorage.getItem('mySubscription');
@@ -148,7 +158,7 @@
                  navigator.notification.confirm('You will no longer receive Push Notifications from the ESF Mobile app.',this.pushStop, 'Unsubscribe', 'Confirm,Cancel');
        },
        confirmPushStart: function() {
-                 navigator.notification.confirm('Please confirm that you wish to receive SUNY-ESF Push Notifications.',function (button, this) {
+                 navigator.notification.confirm('Please confirm that you wish to receive SUNY-ESF Push Notifications.',function (button) {
                              if (button === 1) {
                                 console.log('Subscribing to ESF Push notifications');
                                 window.localStorage.setItem('mySubscription', 'true');

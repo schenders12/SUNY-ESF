@@ -72,11 +72,17 @@
        gaESF.gaStart();
 
        // Register for Push Notifications
+       console.log('Checking Push Subscription...');
        var pushSubscribe = window.localStorage.getItem('mySubscription');
+       console.log('Setting Platform...');
        pushESF.setPlatform(window.device.platform);
+       console.log('If statement...');
        if (!pushSubscribe) {
+            console.log('Setting local storage...');
             window.localStorage.setItem('mySubscription', 'true');
+            console.log('Starting push...');
             pushESF.pushStart();
+            console.log('Done starting push.');
        }
     });
 
