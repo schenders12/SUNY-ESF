@@ -144,7 +144,7 @@
                  navigator.notification.confirm('You will no longer receive Push Notifications from the ESF Mobile app.',this.pushStop, 'Unsubscribe', 'Confirm,Cancel');
        },
        confirmPushStart: function() {
-                 navigator.notification.confirm('Please confirm that you wish to receive SUNY-ESF Push Notifications.',function () {
+                 navigator.notification.confirm('Please confirm that you wish to receive SUNY-ESF Push Notifications.',function (button) {
                              if (button === 1) {
                                 console.log('Subscribing to ESF Push notifications');
                                  this.pushStart();
@@ -162,9 +162,7 @@
              } else if (button === 2) {
                 // do nothing
              }
-       },
-	   
-	   
+       }
 };
 
 })(jQuery);
