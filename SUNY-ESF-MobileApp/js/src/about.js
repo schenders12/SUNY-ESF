@@ -250,10 +250,12 @@
         pushUnsubscribe: function(e) {
                 e.preventDefault();
                 pushESF.confirmPushStop();
+                this.render();
         },
         pushSubscribe: function(e) {
                 e.preventDefault();
                 pushESF.confirmPushStart();
+                this.render();
         }
     });
     RouterManager.register({ routerClass: AboutRouter });
