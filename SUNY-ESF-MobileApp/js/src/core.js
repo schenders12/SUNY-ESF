@@ -72,11 +72,10 @@
        gaESF.gaStart();
 
        // Register for Push Notifications
-	   var pushSubscribe = window.localStorage.getItem('mySubscription');
+       var pushSubscribe = window.localStorage.getItem('mySubscription');
        pushESF.setPlatform(window.device.platform);
        if (pushSubscribe != 'false') {
-           pushESF.pushStart(window.device.platform);
-           // pushESF.pushStart("IOS");
+           pushESF.pushStart();
        }
 
     });
