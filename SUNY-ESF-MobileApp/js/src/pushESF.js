@@ -16,7 +16,11 @@
        events : {
             "push-notification" : "pushReceived"
        },
-       pushStart: function(myPlatform) {
+       setPlatform: function(myPlatform) {
+             this.myPlatform = myPlatform;
+             console.log('Push Platform set to ' + this.myPlatform);
+       },
+       pushStart: function() {
              console.log('Starting Push...');
              // this.mySubscription = window.localStorage.getItem('mySubscription');
              window.localStorage.setItem('mySubscription', 'true');
@@ -25,8 +29,7 @@
                 //if (this.mySubscription) {
                    pushNotification = window.plugins.pushNotification;
                    console.log('Registering for Android pushes');
-                   this.myPlatform = myPlatform;
-                   if ( myPlatform == 'android' || myPlatform == 'Android' )
+                   if ( this.myPlatform == 'android' || this.myPlatform == 'Android' )
                    {
                       console.log('Registering for Android Platform push');
                      // pushNotification.register(this.pushAndroidSuccessHandler, this.pushAndroidErrorHandler,{"senderID":"this.esfGCMId","ecb":"this.onNotificationGCM"});
@@ -63,7 +66,8 @@
              }
        },
        pushReceived: function(e) {
-            if ( myPlatform == 'android' || myPlatform == 'Android' )  {
+            if ( this.myPlatform == 'android' || this.myPlatform == 'Android' )  {
+               onNotificationGCM(e);
             }
             else {
                onNotificationAPN(e);
