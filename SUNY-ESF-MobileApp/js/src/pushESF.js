@@ -147,7 +147,7 @@
                  navigator.notification.confirm('Please confirm that you wish to receive SUNY-ESF Push Notifications.',function (button) {
                              if (button === 1) {
                                 console.log('Subscribing to ESF Push notifications');
-                                 this.pushStart();
+                                 this.pushStart(this.myPlatform);
                                } else if (button === 2) {
                                     // do nothing
                                }
