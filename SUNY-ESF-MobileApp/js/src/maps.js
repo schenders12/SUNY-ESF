@@ -52,7 +52,6 @@
 
             // Get user's location
             this.map.locate({setView: false, maxZoom: 17});
-            this.map.on('locationfound', this.onLocationFound);
 
             // Add layers
             this.mapModel.addLayers(this.map);
