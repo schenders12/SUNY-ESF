@@ -74,10 +74,10 @@
        // Register for Push Notifications
        var pushSubscribe = window.localStorage.getItem('mySubscription');
        pushESF.setPlatform(window.device.platform);
-       if (pushSubscribe != 'false') {
-           pushESF.pushStart();
+       if (!pushSubscribe) {
+            window.localStorage.setItem('mySubscription', 'true');
+            pushESF.pushStart();
        }
-
     });
 
     $(window).bind("orientationchange", function (orientation) {
