@@ -158,22 +158,31 @@
                  navigator.notification.confirm('You will no longer receive Push Notifications from the ESF Mobile app.',this.pushStop, 'Unsubscribe', 'Confirm,Cancel');
        },
        confirmPushStart: function() {
-                 navigator.notification.confirm('Please confirm that you wish to receive SUNY-ESF Push Notifications.',function (button) {
-                             if (button === 1) {
-                                console.log('Subscribing to ESF Push notifications');
-                                window.localStorage.setItem('mySubscription', 'true');
-                                 this.pushStart();
-                               } else if (button === 2) {
+                 navigator.notification.confirm('Please confirm that you wish to receive SUNY-ESF Push Notifications.',this.onPushStart, 'Subscribe', 'Confirm,Cancel');
+                // navigator.notification.confirm('Please confirm that you wish to receive SUNY-ESF Push Notifications.',function (button) {
+                      //       if (button === 1) {
+                        //        console.log('Subscribing to ESF Push notifications');
+                        //        window.localStorage.setItem('mySubscription', 'true');
+                        //         this.pushStart();
+                        //       } else if (button === 2) {
                                     // do nothing
-                               }
-                     }, 'Subscribe', 'Confirm,Cancel');
+                        //       }
+                    // }, 'Subscribe', 'Confirm,Cancel');
        },
        pushStop: function(button) {
              if (button === 1) {
                   window.localStorage.setItem('mySubscription', 'false');
                   console.log('Unsubscribing from ESF Push, sayonara!!!');
                   pushNotification.unregisterDevice(this.esfPushWooshId, this.myDeviceToken);
-
+             } else if (button === 2) {
+                // do nothing
+             }
+       },
+      onPushStart: function(button) {
+             if (button === 1) {
+                 window.localStorage.setItem('mySubscription', 'true');
+                 console.log('Subscribing to ESF Push notifications, hola!!');
+                 this.pushStart();
              } else if (button === 2) {
                 // do nothing
              }
