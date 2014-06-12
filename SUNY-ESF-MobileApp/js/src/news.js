@@ -48,7 +48,12 @@
                 var $list = this.$("#esfHeadlineNews");
                 _.each(data, function(news, index) {
                     // Limit News Short to 200 characters
-                    newsShortShort = (news.newsShort.length >= 200) ? news.newsShort.substr(0, 200) + ' ...' : news.newsShort;
+                    if (news.newsShort)  {
+                       newsShortShort = (news.newsShort.length >= 200) ? news.newsShort.substr(0, 200) + ' ...' : news.newsShort;
+                    }
+                    else {
+                       newsShortShort = '';
+                    }
                     // Create list item for each news article
                     var newsInfo = "<li class=\"news_ListItem2\" data-icon=\"false\">" +
                                    " <img src= \"" + news.PhotoFile + "\" />" +

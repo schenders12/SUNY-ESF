@@ -497,11 +497,20 @@
                // Prevent default changing of page for external links
                e.preventDefault();
                var target=$(e.target).data('target');
-               var target2=$(this).data('target');
+
                // If there is no target defined on the element, use _blank
                // ex:  data-target=\"_blank\"
               if(typeof target == 'undefined') {
                   target = '_blank';
+              }
+
+              var callingId = arguments[0].delegateTarget.id;
+            //alert (callingId);
+              // If this is the Giving page, redirect to browser
+              if (callingId == 'esfGiving')
+              {
+                  //alert("giving...");
+                  target = '_system';
               }
                var href = arguments[0].currentTarget.href;
                this.launchURL('ESF External Link' , href, target);
