@@ -2,7 +2,7 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "edu.esf.edu"
-		versionCode=""
+		versionCode="2"
 		version   = "1.1">
 		<name>SUNY-ESF</name>
 		<description>This is the app for SUNY-ESF (State University of New York College of Environmental Science and Forestry). It features current news and events, a faculty and staff directory, interactive campus map, selected video playlists, links to associated social media sites, information about athletics, dining and giving, and pages offering college facts, history, rankings, and a presidential message. SUNY-ESF is the oldest and most distinguished institution in the United States that focuses on the study of the environment.</description>
