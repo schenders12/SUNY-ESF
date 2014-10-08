@@ -3,11 +3,11 @@
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "edu.esf.edu"
 		versionCode="2"
-		version   = "1.1">
+		version   = "1.2">
 		<name>SUNY-ESF</name>
 		<description>This is the app for SUNY-ESF (State University of New York College of Environmental Science and Forestry). It features current news and events, a faculty and staff directory, interactive campus map, selected video playlists, links to associated social media sites, information about athletics, dining and giving, and pages offering college facts, history, rankings, and a presidential message. SUNY-ESF is the oldest and most distinguished institution in the United States that focuses on the study of the environment.</description>
 		<author href="" email="mobile@esf.edu"></author>
-		<preference name="phonegap-version" value="3.5.0" />
+		<preference name="phonegap-version" value="3.5.1" />
 		<preference name="orientation" value="portrait" />
 		<preference name="fullscreen" value="true" />
 		<preference name="target-device" value="universal" />
